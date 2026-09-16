@@ -1,0 +1,2 @@
+# Memorial_Life_Celebration_Planning_Service
+Automated website repository for Memorial_Life_Celebration_Planning_Service
