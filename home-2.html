@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVERMORE | Memorial & Life Celebration - Home 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Home 2 styles */
+    .hero-home { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .split-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; padding-top: 0; align-items: center; }
+    .split-hero-content { padding: var(--space-xl); display: flex; flex-direction: column; justify-content: center; }
+    .split-hero-visual { position: relative; padding: var(--space-xl); display: flex; align-items: center; justify-content: center; }
+    .layered-img-1 { width: 100%; max-width: 600px; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--radius-lg); position: relative; z-index: 1; box-shadow: var(--shadow-lg); margin: 0 auto; display: block; }
+    
+    .vertical-themes { display: flex; height: 60vh; }
+    .theme-panel { flex: 1; border-right: 1px solid var(--border-color); position: relative; overflow: hidden; transition: flex var(--transition-slow); cursor: pointer; display: flex; align-items: flex-end; padding: var(--space-lg); background-size: cover; background-position: center; }
+    .theme-panel::before { content: ''; position: absolute; top:0;left:0;width:100%;height:100%; background: rgba(0,0,0,0.5); transition: background var(--transition-normal); z-index: 1; }
+    .theme-panel:hover { flex: 2; }
+    .theme-panel:hover::before { background: rgba(0,0,0,0.2); }
+    .theme-content { position: relative; z-index: 2; color: #fff; }
+    .theme-content h3 { color: #ffffff !important; font-weight: 700 !important; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+    .theme-content p { opacity: 0; max-height: 0; transition: all var(--transition-normal); color: rgba(255,255,255,0.9); overflow: hidden; }
+    .theme-panel:hover .theme-content p { opacity: 1; max-height: 100px; margin-top: 1rem; }
+    
+    .scroll-gallery { display: flex; gap: 2rem; overflow-x: auto; padding: 2rem 0; scrollbar-width: none; }
+    .scroll-gallery::-webkit-scrollbar { display: none; }
+    .gallery-item { flex: 0 0 auto; border-radius: var(--radius-lg); overflow: hidden; }
+    .gallery-item img { width: auto; height: 400px; object-fit: cover; }
+    
+    .staircase { display: flex; flex-direction: column; gap: 2rem; padding: 4rem 0; }
+    .stair-step { display: flex; align-items: center; gap: 4rem; width: 80%; background: var(--bg-primary); padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    .stair-step:nth-child(even) { align-self: flex-end; }
+    .stair-num { font-family: var(--font-display); font-size: 4rem; color: var(--color-copper-muted); opacity: 0.5; line-height: 1; }
+    
+    .tribute-studio { background: var(--color-charcoal); color: var(--color-ivory); padding: var(--space-xxl) 0; border-radius: var(--radius-lg); margin: 0 2rem; }
+    .preview-interface { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 2rem; aspect-ratio: 16/9; display: flex; flex-direction: column; justify-content: space-between; }
+    
+    @media (max-width: 1024px) {
+      .split-hero { grid-template-columns: 1fr; }
+      .vertical-themes { flex-direction: column; height: auto; }
+      .theme-panel { height: 200px; }
+      .theme-panel:hover { height: 300px; }
+      .stair-step { width: 100%; gap: 2rem; flex-direction: column; align-items: flex-start; }
+      .tribute-studio { margin: 0; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar placeholder - similar to index.html -->
+<nav class="navbar">
+  <div class="container nav-container">
+                <div class="nav-brand">
+      <a href="/" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        EVERMORE
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <div class="dropdown">
+        <a href="#" class="nav-link has-dropdown">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-content">
+          <a href="/" class="nav-link">Home 1</a>
+          <a href="/home-2.html" class="nav-link">Home 2</a>
+        </div>
+      </div>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/services.html" class="nav-link">Services</a>
+      <a href="/life-celebration.html" class="nav-link">Life Celebration</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+      </div>
+
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem;">
+      <button class="icon-btn theme-toggle" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+      <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+    </div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close-btn" aria-label="Close Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="mobile-nav-list">
+      <a href="/" class="nav-link">Home 1</a>
+      <a href="/home-2.html" class="nav-link">Home 2</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/services.html" class="nav-link">Services</a>
+      <a href="/life-celebration.html" class="nav-link">Life Celebration</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="mobile-controls">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+  </div>
+  
+  <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+</div>
+
+<!-- SECTION 01: HERO -->
+<section class="hero-home">
+  <div class="hero-bg reveal">
+    <img src="assets/images/home2-hero.png" alt="Peaceful natural landscape">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="split-hero container">
+    <div class="split-hero-content reveal" style="color: #FFFFFF;">
+      <h1 style="margin-bottom: 1.5rem; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.6);">Remembering is an act of love.</h1>
+      <p style="margin-bottom: 2.5rem; font-size: var(--text-lg); color: rgba(255, 255, 255, 0.95); text-shadow: 0 1px 4px rgba(0,0,0,0.6);">We help families create thoughtful, beautiful celebrations that honor the person they knew.</p>
+      <div style="padding-bottom: 4rem;"><a href="#" class="btn btn-primary open-modal">Discuss Your Needs</a></div>
+    </div>
+    <div class="split-hero-visual reveal stagger-2">
+      <img src="assets/images/about_hero.jpg" class="layered-img-1" alt="Editorial portrait">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" style="padding-top: 6rem;">
+  <div class="container text-center" style="margin-bottom: 4rem;">
+    <h2 class="reveal" style="font-size: 2.5rem; margin-bottom: 1rem;">Honoring Their Legacy</h2>
+    <p class="reveal stagger-1" style="font-size: var(--text-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Explore the meaningful ways we can help you capture the essence of their life.</p>
+  </div>
+  <div class="vertical-themes">
+    <div class="theme-panel" style="background-image: url('assets/images/Stories.png');">
+      <div class="theme-content">
+        <h3 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Stories</h3>
+        <p>Sharing the moments that defined their journey.</p>
+      </div>
+    </div>
+    <div class="theme-panel" style="background-image: url('assets/images/Music.png');">
+      <div class="theme-content">
+        <h3 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Music</h3>
+        <p>Curating a soundtrack of their favorite melodies.</p>
+      </div>
+    </div>
+    <div class="theme-panel" style="background-image: url('assets/images/Gathering.png');">
+      <div class="theme-content">
+        <h3 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Gathering</h3>
+        <p>Bringing people together in a meaningful space.</p>
+      </div>
+    </div>
+    <div class="theme-panel" style="background-image: url('assets/images/Tribute.png');">
+      <div class="theme-content">
+        <h3 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Tribute</h3>
+        <p>Creating lasting memories that endure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="reveal" style="margin-bottom: 2rem;">Memory Gallery</h2>
+    <div class="scroll-gallery reveal stagger-1">
+      <div class="gallery-item"><img src="assets/images/memory_details.jpg" alt="Gallery"></div>
+      <div class="gallery-item"><img src="assets/images/life_celebration_hero.jpg" alt="Gallery"></div>
+      <div class="gallery-item"><img src="assets/images/about_hero.jpg" alt="Gallery"></div>
+      <div class="gallery-item"><img src="assets/images/services_hero.jpg" alt="Gallery"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="text-center reveal">The Planning Journey</h2>
+    <div class="staircase reveal stagger-1">
+      <div class="stair-step">
+        <span class="stair-num">01</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Conversation</h4>
+          <p>We start by listening to your needs.</p>
+        </div>
+      </div>
+      <div class="stair-step">
+        <span class="stair-num">02</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Direction</h4>
+          <p>Finding the right setting and tone.</p>
+        </div>
+      </div>
+      <div class="stair-step">
+        <span class="stair-num">03</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Details</h4>
+          <p>Curating the specific elements of the day.</p>
+        </div>
+      </div>
+      <div class="stair-step">
+        <span class="stair-num">04</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Coordination</h4>
+          <p>Managing the practical logistics.</p>
+        </div>
+      </div>
+      <div class="stair-step">
+        <span class="stair-num">05</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Celebration</h4>
+          <p>A beautiful, seamless gathering.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tribute-studio reveal">
+  <div class="container">
+    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      <div>
+        <h2 style="color: var(--color-ivory); margin-bottom: 1.5rem;">Tribute Studio</h2>
+        <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">We create beautifully crafted photo stories, video tributes, and digital memorial pages that can be shared with family anywhere.</p>
+        <a href="#" class="btn btn-primary open-modal">Explore Tribute Options</a>
+      </div>
+      <div>
+        <img src="assets/images/Tribute%20Studio.png" alt="Tribute Studio" style="width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--color-ivory); text-align: center; padding: 8rem 0;">
+  <div class="container reveal">
+    <h2 style="font-size: var(--text-hero); margin-bottom: 2rem;">There is no single way to remember someone.</h2>
+    <a href="#" class="btn btn-primary open-modal">Find the Right Approach</a>
+  </div>
+</section>
+
+<!-- Include Modal and Footer scripts here -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+                              <div class="footer-brand">
+        <a href="/" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          EVERMORE
+        </a>
+                <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
+          Dedicated to providing compassionate support and creating deeply personalized memorial services for your loved ones.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <div class="footer-links">
+          <a href="/" class="footer-link">Home</a>
+          <a href="/home-2.html" class="footer-link">Home 2</a>
+          <a href="/about.html" class="footer-link">About</a>
+          <a href="/services.html" class="footer-link">Services</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Planning</h4>
+        <div class="footer-links">
+          <a href="/life-celebration.html" class="footer-link">Life Celebration</a>
+          <a href="/pricing.html" class="footer-link">Pricing</a>
+          <a href="/resources.html" class="footer-link">Resources</a>
+          <a href="/contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Planning Guidance</a>
+          <a href="#" class="footer-link">Tribute Services</a>
+          <a href="#" class="footer-link">Venue Coordination</a>
+          <a href="#" class="footer-link">Event Coordination</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Evermore. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Accessibility</a>
+        <a href="#" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+
+<div class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Let's Begin With a Conversation</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Tell us a little about what you are looking for, and our planning team can help you understand the next steps.</p>
+    </div>
+    <form class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div>
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">What Can We Help With?</label>
+        <select class="form-control" required>
+          <option value="">Select an option...</option>
+          <option value="planning">Planning Guidance</option>
+          <option value="celebration">Celebration Design</option>
+          <option value="tribute">Tribute Creation</option>
+          <option value="coordination">Event Coordination</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" placeholder="Share as much or as little as you feel comfortable..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Send Enquiry</button>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

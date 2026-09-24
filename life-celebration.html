@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVERMORE | Life Celebration</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .circular-interface { display: flex; align-items: center; justify-content: center; height: 600px; position: relative; margin-top: 4rem; }
+    .circle-nav { position: absolute; width: 100%; height: 100%; border: 1px solid var(--border-color); border-radius: 50%; max-width: 600px; }
+    .circle-item { position: absolute; background: var(--bg-primary); padding: 0.5rem 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-full); font-size: var(--text-sm); cursor: pointer; transition: all var(--transition-fast); }
+    .circle-item:hover, .circle-item.active { background: var(--color-charcoal); color: var(--color-ivory); border-color: var(--color-charcoal); }
+    
+    /* Position elements in circle approx */
+    .ci-1 { top: -20px; left: 50%; transform: translateX(-50%); }
+    .ci-2 { top: 15%; right: 5%; }
+    .ci-3 { top: 50%; right: -30px; transform: translateY(-50%); }
+    .ci-4 { bottom: 15%; right: 5%; }
+    .ci-5 { bottom: -20px; left: 50%; transform: translateX(-50%); }
+    .ci-6 { bottom: 15%; left: 5%; }
+    .ci-7 { top: 50%; left: -30px; transform: translateY(-50%); }
+    .ci-8 { top: 15%; left: 5%; }
+    
+    .circle-content { text-align: center; max-width: 300px; padding: 2rem; background: var(--bg-primary); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); z-index: 10; }
+    
+    .tribute-video-section { background: var(--color-black); color: #fff; padding: var(--space-xxl) 0; }
+    .video-player { background: #000; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-top: 3rem; border: 1px solid rgba(255,255,255,0.1); }
+    .video-player img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+    .play-btn { position: absolute; width: 80px; height: 80px; background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform var(--transition-fast); }
+    .play-btn:hover { transform: scale(1.1); background: rgba(255,255,255,0.3); }
+    .play-btn svg { fill: #fff; margin-left: 5px; }
+    .video-timeline { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1rem 2rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); display: flex; gap: 1rem; align-items: center; }
+    .progress-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; }
+    .progress-fill { width: 35%; height: 100%; background: var(--color-copper); border-radius: 2px; }
+    
+    .collage-section { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--bg-secondary); padding: 4rem 2rem; }
+    .c-img { position: absolute; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); transition: transform var(--transition-slow); }
+    .c-img:hover { transform: scale(1.05); z-index: 20; }
+    .c-img-1 { width: 28%; aspect-ratio: 3/4; top: 50%; transform: translateY(-50%); left: 5%; z-index: 1; }
+    .c-img-1:hover { transform: translateY(-50%) scale(1.05); }
+    .c-img-2 { width: 30%; aspect-ratio: 4/3; top: 10%; right: 8%; z-index: 1; }
+    .c-img-3 { width: 25%; aspect-ratio: 3/4; bottom: 5%; right: 15%; z-index: 3; border: 10px solid var(--bg-secondary); }
+    .collage-center { z-index: 10; text-align: center; background: rgba(250, 248, 245, 0.75); padding: 5rem 6rem; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: var(--radius-xl); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: var(--shadow-xl); max-width: 800px; width: 100%; margin: 0 auto; }
+    
+    @media (max-width: 768px) {
+      .circular-interface { height: auto; flex-direction: column; gap: 2rem; }
+      .circle-nav { position: relative; width: 100%; height: auto; border: none; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+      .circle-item { position: relative; top: auto; left: auto; right: auto; bottom: auto; transform: none; }
+      .c-img { display: none; }
+      .collage-center { padding: 3rem 1.5rem; }
+      .collage-center .btn { white-space: nowrap; padding: 1rem 1.5rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-container">
+                <div class="nav-brand">
+      <a href="/" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        EVERMORE
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <div class="dropdown">
+        <a href="#" class="nav-link has-dropdown">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-content">
+          <a href="/" class="nav-link">Home 1</a>
+          <a href="/home-2.html" class="nav-link">Home 2</a>
+        </div>
+      </div>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/services.html" class="nav-link">Services</a>
+      <a href="/life-celebration.html" class="nav-link">Life Celebration</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+      </div>
+
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem;">
+      <button class="icon-btn theme-toggle" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+      <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+    </div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close-btn" aria-label="Close Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="mobile-nav-list">
+      <a href="/" class="nav-link">Home 1</a>
+      <a href="/home-2.html" class="nav-link">Home 2</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/services.html" class="nav-link">Services</a>
+      <a href="/life-celebration.html" class="nav-link">Life Celebration</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="mobile-controls">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+  </div>
+  
+  <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+</div>
+
+<!-- SECTION 01: HERO -->
+<section class="hero-home" style="min-height: 100vh; background-color: var(--bg-secondary); display: flex; align-items: center; justify-content: center; padding-top: 4rem;">
+  <div class="container hero-content text-center" style="margin: 0 auto;">
+    <h1 class="reveal" style="color: var(--text-primary); margin-bottom: 1.5rem;">A celebration shaped around a life, not a template.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="text-center reveal">Building the Experience</h2>
+    
+    <div class="circular-interface reveal stagger-1">
+      <div class="circle-nav">
+        <div class="circle-item ci-1 active">Venue</div>
+        <div class="circle-item ci-2">Music</div>
+        <div class="circle-item ci-3">Readings</div>
+        <div class="circle-item ci-4">Memories</div>
+        <div class="circle-item ci-5">Photos</div>
+        <div class="circle-item ci-6">Flowers</div>
+        <div class="circle-item ci-7">Tribute</div>
+        <div class="circle-item ci-8">Gathering</div>
+      </div>
+      <div class="circle-content">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Venue</h3>
+        <p style="font-size: var(--text-sm);">Selecting a space that feels appropriate, whether a quiet garden, a gallery, or an elegant hall.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tribute-video-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <h2 style="color: #fff; margin-bottom: 1rem;">The Tribute Experience</h2>
+      <p style="color: rgba(255,255,255,0.7); margin: 0 auto 2rem auto; max-width: 600px;">A cinematic narrative of the moments that mattered.</p>
+      <a href="#" class="btn btn-primary open-modal">Discuss a Tribute Video</a>
+    </div>
+    
+    <div class="video-player reveal stagger-1">
+      <img src="assets/images/memory_details.jpg" alt="Video frame">
+      <div class="play-btn">
+        <svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"></path></svg>
+      </div>
+      <div class="video-timeline">
+        <span style="font-size: 0.8rem; font-family: monospace;">01:24</span>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <span style="font-size: 0.8rem; font-family: monospace;">05:30</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt collage-section">
+  <div class="collage-center reveal stagger-1">
+    <h2 style="margin-bottom: 1.5rem;">Make it unmistakably theirs.</h2>
+    <a href="#" class="btn btn-primary open-modal">Explore Celebration Ideas</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+                              <div class="footer-brand">
+        <a href="/" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          EVERMORE
+        </a>
+                <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
+          Dedicated to providing compassionate support and creating deeply personalized memorial services for your loved ones.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <div class="footer-links">
+          <a href="/" class="footer-link">Home</a>
+          <a href="/home-2.html" class="footer-link">Home 2</a>
+          <a href="/about.html" class="footer-link">About</a>
+          <a href="/services.html" class="footer-link">Services</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Planning</h4>
+        <div class="footer-links">
+          <a href="/life-celebration.html" class="footer-link">Life Celebration</a>
+          <a href="/pricing.html" class="footer-link">Pricing</a>
+          <a href="/resources.html" class="footer-link">Resources</a>
+          <a href="/contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Planning Guidance</a>
+          <a href="#" class="footer-link">Tribute Services</a>
+          <a href="#" class="footer-link">Venue Coordination</a>
+          <a href="#" class="footer-link">Event Coordination</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Evermore. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Accessibility</a>
+        <a href="#" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+
+<div class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Let's Begin With a Conversation</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Tell us a little about what you are looking for, and our planning team can help you understand the next steps.</p>
+    </div>
+    <form class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div>
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">What Can We Help With?</label>
+        <select class="form-control" required>
+          <option value="">Select an option...</option>
+          <option value="planning">Planning Guidance</option>
+          <option value="celebration">Celebration Design</option>
+          <option value="tribute">Tribute Creation</option>
+          <option value="coordination">Event Coordination</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" placeholder="Share as much or as little as you feel comfortable..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Send Enquiry</button>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

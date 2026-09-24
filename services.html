@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVERMORE | Services</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .services-hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: flex-end; padding: var(--space-xxl) 0; }
+    .services-hero-img { position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index: 0; }
+    .services-hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2)); z-index: 1; }
+    .services-hero-content { position: relative; z-index: 2; color: #fff; width: 100%; }
+    .service-nav { display: flex; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; margin-top: 4rem; overflow-x: auto; scrollbar-width: none; }
+    .service-nav::-webkit-scrollbar { display: none; }
+    .service-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: var(--text-sm); white-space: nowrap; transition: color var(--transition-fast); }
+    .service-nav a:hover { color: #fff; }
+    
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; }
+    .service-card { background: var(--bg-primary); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; font-size: var(--text-md); font-weight: 500; transition: all var(--transition-normal); box-shadow: var(--shadow-sm); color: var(--text-primary); cursor: default; }
+    .service-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 1rem; display: block; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--color-copper); }
+    
+    .service-detail-row { display: flex; gap: 4rem; align-items: center; margin-bottom: 8rem; }
+    .service-detail-row:nth-child(even) { flex-direction: row-reverse; }
+    .service-detail-img { width: 50%; flex: 0 0 calc(50% - 2rem); aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-lg); }
+    .service-detail-text { width: 50%; flex: 0 0 calc(50% - 2rem); }
+    
+    @media (max-width: 768px) {
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .service-card { padding: 1.5rem 1rem; font-size: 0.85rem; }
+      
+      .service-detail-row { flex-direction: column !important; gap: 2rem; margin-bottom: 4rem; text-align: center; }
+      .service-detail-img, .service-detail-text { width: 100%; flex: none; }
+      .service-detail-text h3 { font-size: 2rem; }
+      .service-detail-text p { font-size: 1.1rem; line-height: 1.7; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container nav-container">
+                <div class="nav-brand">
+      <a href="/" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        EVERMORE
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <div class="dropdown">
+        <a href="#" class="nav-link has-dropdown">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-content">
+          <a href="/" class="nav-link">Home 1</a>
+          <a href="/home-2.html" class="nav-link">Home 2</a>
+        </div>
+      </div>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/services.html" class="nav-link">Services</a>
+      <a href="/life-celebration.html" class="nav-link">Life Celebration</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+      </div>
+
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem;">
+      <button class="icon-btn theme-toggle" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+      <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+    </div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close-btn" aria-label="Close Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="mobile-nav-list">
+      <a href="/" class="nav-link">Home 1</a>
+      <a href="/home-2.html" class="nav-link">Home 2</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/services.html" class="nav-link">Services</a>
+      <a href="/life-celebration.html" class="nav-link">Life Celebration</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="mobile-controls">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+  </div>
+  
+  <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+</div>
+
+
+
+<section class="services-hero" style="background-color: var(--bg-secondary); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <div class="container services-hero-content reveal stagger-1" style="display: flex; flex-direction: column; align-items: center; color: var(--text-primary);">
+    <h1 style="max-width: 800px; color: var(--text-primary); text-align: center;">Thoughtful support from first conversation to final farewell.</h1>
+    <div class="service-nav" style="border-top-color: var(--border-color); justify-content: center; flex-wrap: wrap;">
+      <a href="#planning" style="color: var(--text-secondary);">Celebration Planning</a>
+      <a href="#venue" style="color: var(--text-secondary);">Venue Coordination</a>
+      <a href="#tribute" style="color: var(--text-secondary);">Tribute Creation</a>
+      <a href="#day-of" style="color: var(--text-secondary);">Event-Day Coordination</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container text-center">
+    <h2 class="reveal">Service Constellation</h2>
+    <p class="reveal stagger-1" style="margin: 0 auto; max-width: 600px; color: var(--text-secondary);">Everything required for a beautiful gathering.</p>
+    
+    <div class="services-grid reveal stagger-2">
+      <div class="service-card">
+        <img src="assets/images/Celebration_Planning.png" alt="Celebration Planning">
+        <span>Celebration Planning</span>
+      </div>
+      <div class="service-card">
+        <img src="assets/images/Venue_Coordination2.png" alt="Venue Coordination">
+        <span>Venue Coordination</span>
+      </div>
+      <div class="service-card">
+        <img src="assets/images/Tribute_Video_Creation2.png" alt="Tribute Video Creation">
+        <span>Tribute Video Creation</span>
+      </div>
+      <div class="service-card">
+        <img src="assets/images/Floral_Coordination.png" alt="Floral Coordination">
+        <span>Floral Coordination</span>
+      </div>
+      <div class="service-card">
+        <img src="assets/images/Music_&_Readings.png" alt="Music & Readings">
+        <span>Music & Readings</span>
+      </div>
+      <div class="service-card">
+        <img src="assets/images/Photography.png" alt="Photography">
+        <span>Photography</span>
+      </div>
+      <div class="service-card">
+        <img src="assets/images/Memory_Displays.png" alt="Memory Displays">
+        <span>Memory Displays</span>
+      </div>
+      <div class="service-card">
+        <img src="assets/images/Event-Day_Coordination2.png" alt="Event-Day Coordination">
+        <span>Event-Day Coordination</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    
+    <div id="planning" class="service-detail-row reveal">
+      <img src="assets/images/Celebration-of-Life_Planning.png" class="service-detail-img" alt="Celebration-of-Life Planning">
+      <div class="service-detail-text">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Celebration-of-Life Planning</h3>
+        <p>Personalized ceremony planning that reflects the individual's values, passions, and history. We help structure the flow of the gathering to create a deeply meaningful experience.</p>
+      </div>
+    </div>
+    
+    <div id="venue" class="service-detail-row reveal stagger-1">
+      <img src="assets/images/Venue_Coordination2.png" class="service-detail-img" alt="Venue Coordination">
+      <div class="service-detail-text">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Venue Coordination</h3>
+        <p>Helping families find and coordinate meaningful spaces. Whether it's a botanical garden, an art gallery, or a quiet private estate, we ensure the setting is perfect.</p>
+      </div>
+    </div>
+    
+    <div id="tribute" class="service-detail-row reveal stagger-2">
+      <img src="assets/images/Tribute_Video_Creation2.png" class="service-detail-img" alt="Tribute Video Creation">
+      <div class="service-detail-text">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Tribute Video Creation</h3>
+        <p>Creating visual stories from photographs, video, and memories. Our studio editors craft cinematic tributes set to meaningful music.</p>
+      </div>
+    </div>
+    
+    <div id="day-of" class="service-detail-row reveal stagger-3">
+      <img src="assets/images/Event-Day_Coordination2.png" class="service-detail-img" alt="Event-Day Coordination">
+      <div class="service-detail-text">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Event-Day Coordination</h3>
+        <p>Managing the practical details so families can remain present. From directing guests to coordinating speakers and vendors, we handle everything quietly behind the scenes.</p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section section-alt text-center">
+  <div class="container reveal">
+    <h2 style="margin-bottom: 1rem;">Not sure where to begin?</h2>
+    <p style="margin: 0 auto 3rem auto;">Tell us what you need and we will help you understand the options.</p>
+    <a href="#" class="btn btn-primary open-modal">Request Guidance</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+                              <div class="footer-brand">
+        <a href="/" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          EVERMORE
+        </a>
+                <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
+          Dedicated to providing compassionate support and creating deeply personalized memorial services for your loved ones.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <div class="footer-links">
+          <a href="/" class="footer-link">Home</a>
+          <a href="/home-2.html" class="footer-link">Home 2</a>
+          <a href="/about.html" class="footer-link">About</a>
+          <a href="/services.html" class="footer-link">Services</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Planning</h4>
+        <div class="footer-links">
+          <a href="/life-celebration.html" class="footer-link">Life Celebration</a>
+          <a href="/pricing.html" class="footer-link">Pricing</a>
+          <a href="/resources.html" class="footer-link">Resources</a>
+          <a href="/contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Planning Guidance</a>
+          <a href="#" class="footer-link">Tribute Services</a>
+          <a href="#" class="footer-link">Venue Coordination</a>
+          <a href="#" class="footer-link">Event Coordination</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Evermore. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Accessibility</a>
+        <a href="#" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+
+<div class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Let's Begin With a Conversation</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Tell us a little about what you are looking for, and our planning team can help you understand the next steps.</p>
+    </div>
+    <form class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div>
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">What Can We Help With?</label>
+        <select class="form-control" required>
+          <option value="">Select an option...</option>
+          <option value="planning">Planning Guidance</option>
+          <option value="celebration">Celebration Design</option>
+          <option value="tribute">Tribute Creation</option>
+          <option value="coordination">Event Coordination</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" placeholder="Share as much or as little as you feel comfortable..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Send Enquiry</button>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

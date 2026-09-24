@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVERMORE | Memorial & Life Celebration</title>
+  <meta name="description" content="Thoughtful planning, meaningful details, and compassionate guidance for families creating a celebration that truly reflects a life lived.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Home specific styles */
+    .hero-home { min-height: 100vh; display: flex; align-items: center; padding-top: 5rem; position: relative; overflow: hidden; }
+    .timeline-path { display: flex; overflow-x: auto; padding: 2rem 0; gap: 2rem; scrollbar-width: none; }
+    .timeline-path::-webkit-scrollbar { display: none; }
+    .timeline-node { flex: 0 0 300px; padding: 2rem; border-left: 2px solid var(--accent-primary); position: relative; }
+    [dir="rtl"] .timeline-node { border-left: none; border-right: 2px solid var(--accent-primary); }
+    .timeline-node::before { content: ''; position: absolute; left: -7px; top: 2rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-primary); }
+    [dir="rtl"] .timeline-node::before { left: auto; right: -7px; }
+    
+    .elegant-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .elegant-visuals { position: relative; padding-bottom: 2rem; padding-right: 2rem; }
+    .elegant-img-main { width: 85%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); position: relative; z-index: 1; display: block; }
+    .elegant-img-second { width: 50%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); position: absolute; right: 0; bottom: 0; z-index: 2; border: 8px solid var(--bg-secondary); }
+    .elegant-content { display: flex; flex-direction: column; justify-content: center; }
+    
+    @media (max-width: 768px) {
+      .timeline-node { flex: 0 0 80vw; }
+      .elegant-split { grid-template-columns: 1fr; gap: 3rem; }
+      .elegant-img-main { width: 95%; }
+      .elegant-img-second { width: 45%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-container">
+                <div class="nav-brand">
+      <a href="/" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        EVERMORE
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <div class="dropdown">
+        <a href="#" class="nav-link has-dropdown">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-content">
+          <a href="/" class="nav-link">Home 1</a>
+          <a href="/home-2.html" class="nav-link">Home 2</a>
+        </div>
+      </div>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/services.html" class="nav-link">Services</a>
+      <a href="/life-celebration.html" class="nav-link">Life Celebration</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+      </div>
+
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem;">
+      <button class="icon-btn theme-toggle" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+      <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+    </div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close-btn" aria-label="Close Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="mobile-nav-list">
+      <a href="/" class="nav-link">Home 1</a>
+      <a href="/home-2.html" class="nav-link">Home 2</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/services.html" class="nav-link">Services</a>
+      <a href="/life-celebration.html" class="nav-link">Life Celebration</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="mobile-controls">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+  </div>
+  
+  <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+</div>
+
+<!-- SECTION 01: HERO -->
+<section class="hero-home">
+  <div class="hero-bg reveal">
+    <img src="assets/images/home_hero.jpg" alt="Peaceful natural landscape">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="container hero-content" style="margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <span class="eyebrow reveal stagger-1" style="margin-bottom: 1.5rem; color: #FFFFFF; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">MEMORIAL & LIFE CELEBRATION</span>
+    <h1 class="reveal stagger-2" style="margin-bottom: 1.5rem; text-align: center;">A life remembered with care.</h1>
+    <p class="reveal stagger-3" style="font-size: var(--text-md); margin: 0 auto 3rem auto; max-width: 700px; text-align: center;">Thoughtful planning, meaningful details, and compassionate guidance for families creating a celebration that truly reflects a life lived.</p>
+    <div class="reveal stagger-4 btn-group" style="max-width: 650px; margin: 0 auto;">
+      <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+      <a href="/services.html" class="btn btn-secondary" style="border-color: rgba(255,255,255,0.4); color: white;">Explore Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 02: THE MEMORY MAP -->
+<section class="section section-alt">
+  <div class="container text-center">
+    <h2 class="reveal" style="margin-bottom: 1rem;">Every life has its own story.</h2>
+    <p class="reveal stagger-1" style="margin: 0 auto 4rem auto; max-width: 700px;">We help families shape the moments, people and places that made a life meaningful into a celebration that feels personal.</p>
+    
+    <div class="memory-map-container reveal stagger-2">
+      <div class="orbit-line"></div>
+      <div class="memory-map-center">
+        EVERMORE
+      </div>
+      
+      <div class="orbit-node node-1">
+        <h4>01 &mdash; Story</h4>
+        <p>The unique narrative of a life well lived.</p>
+      </div>
+      
+      <div class="orbit-node node-2">
+        <h4>02 &mdash; People</h4>
+        <p>The family and friends who shared the journey.</p>
+      </div>
+      
+      <div class="orbit-node node-3">
+        <h4>03 &mdash; Place</h4>
+        <p>Meaningful locations that hold memories.</p>
+      </div>
+      
+      <div class="orbit-node node-4">
+        <h4>04 &mdash; Moments</h4>
+        <p>The small details that meant everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03: SERVICES PATH -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow reveal">OUR PROCESS</span>
+    <h2 class="reveal stagger-1" style="margin-bottom: 3rem;">A thoughtful path forward.</h2>
+    
+    <div class="timeline-path reveal stagger-2">
+      <div class="timeline-node">
+        <img src="assets/images/Listen.png" alt="Listen" style="width: 100%; height: auto; display: block; margin-bottom: 1.5rem;">
+        <h4 style="font-family: var(--font-display); margin-bottom: 1rem;">01 &mdash; Listen</h4>
+        <p style="font-size: var(--text-sm);">We begin by understanding who they were and what your family needs right now.</p>
+      </div>
+      <div class="timeline-node">
+        <img src="assets/images/Plan.png" alt="Plan" style="width: 100%; height: auto; display: block; margin-bottom: 1.5rem;">
+        <h4 style="font-family: var(--font-display); margin-bottom: 1rem;">02 &mdash; Plan</h4>
+        <p style="font-size: var(--text-sm);">Structuring a celebration that feels personal, respectful, and appropriate.</p>
+      </div>
+      <div class="timeline-node">
+        <img src="assets/images/Coordinate.png" alt="Coordinate" style="width: 100%; height: auto; display: block; margin-bottom: 1.5rem;">
+        <h4 style="font-family: var(--font-display); margin-bottom: 1rem;">03 &mdash; Coordinate</h4>
+        <p style="font-size: var(--text-sm);">Handling vendors, venues, and logistics so you don't have to worry.</p>
+      </div>
+      <div class="timeline-node">
+        <img src="assets/images/Create.png" alt="Create" style="width: 100%; height: auto; display: block; margin-bottom: 1.5rem;">
+        <h4 style="font-family: var(--font-display); margin-bottom: 1rem;">04 &mdash; Create</h4>
+        <p style="font-size: var(--text-sm);">Bringing the details to life—from music and readings to tribute videos.</p>
+      </div>
+      <div class="timeline-node">
+        <img src="assets/images/Remember.png" alt="Remember" style="width: 100%; height: auto; display: block; margin-bottom: 1.5rem;">
+        <h4 style="font-family: var(--font-display); margin-bottom: 1rem;">05 &mdash; Remember</h4>
+        <p style="font-size: var(--text-sm);">Supporting you on the day so you can focus entirely on remembering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 04: LIFE IN DETAILS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="elegant-split">
+      <div class="elegant-visuals reveal">
+        <img src="assets/images/The%20details%20make%20the%20difference.png" class="elegant-img-main" alt="The details make the difference">
+        <img src="assets/images/The%20details%20make%20the%20difference2.png" class="elegant-img-second stagger-1" alt="Details make the difference 2">
+      </div>
+      <div class="elegant-content reveal stagger-2">
+        <h2 style="margin-bottom: 1.5rem; font-size: 2.5rem;">The details make the difference.</h2>
+        <p style="margin-bottom: 2rem; font-size: var(--text-md); color: var(--text-secondary); line-height: 1.8;">Personal photographs, favorite places, music, stories, readings, flowers, and shared memories.</p>
+        <blockquote style="font-family: var(--font-display); font-size: var(--text-lg); font-style: italic; border-left: 2px solid var(--accent-primary); padding-left: 1.5rem; color: var(--text-primary); margin: 0;">
+          "The most meaningful celebrations are built from the details that made someone uniquely themselves."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 05: PLANNING WITHOUT PRESSURE -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="editorial-grid">
+      <div style="grid-column: 1 / 6;" class="reveal">
+        <span class="eyebrow" style="color: var(--accent-primary);">AT YOUR PACE</span>
+        <h2 style="margin-bottom: 1.5rem;">Guidance when everything feels overwhelming.</h2>
+        <p>Our experienced team is here to support you step by step, removing the burden of logistics so you can focus on family.</p>
+      </div>
+      <div style="grid-column: 7 / 13;" class="reveal stagger-1">
+        
+        <div class="accordion-item active">
+          <div class="accordion-header">
+            <h3 class="accordion-title"><span class="accordion-num">01</span> Understanding your options</h3>
+            <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              We gently explain all available choices for the gathering, ceremony, and disposition, ensuring you make informed decisions without feeling rushed.
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title"><span class="accordion-num">02</span> Choosing a setting</h3>
+            <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              From elegant halls and botanical gardens to intimate private estates, we source and secure venues that fit the tone of the celebration.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title"><span class="accordion-num">03</span> Building the ceremony</h3>
+            <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              Structuring the flow of the day, helping select meaningful readings, and coordinating speakers and musicians.
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title"><span class="accordion-num">04</span> Creating tributes</h3>
+            <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              Designing personalized elements like cinematic video stories, premium memory books, and beautiful displays.
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 06: FINAL CTA -->
+<section class="hero-home" style="min-height: 70vh; padding-bottom: 5rem;">
+  <div class="hero-bg reveal">
+    <img src="assets/images/life_celebration_hero.jpg" alt="Warm family gathering">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="container hero-content text-center" style="margin: 0 auto; padding-bottom: 2rem;">
+    <h2 class="reveal" style="font-size: var(--text-hero); margin-bottom: 1.5rem; color: #fff;">Give their story a beautiful place to live on.</h2>
+    <p class="reveal stagger-1" style="margin: 0 auto 1.5rem auto; font-size: var(--text-lg); color: rgba(255,255,255,0.9);">Whether you are planning ahead or arranging a celebration now, our team is here to guide you with patience and care.</p>
+    <a href="#" class="btn btn-primary reveal stagger-2 open-modal">Begin a Conversation</a>
+  </div>
+</section>
+
+<div class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Let's Begin With a Conversation</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Tell us a little about what you are looking for, and our planning team can help you understand the next steps.</p>
+    </div>
+    <form class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div>
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">What Can We Help With?</label>
+        <select class="form-control" required>
+          <option value="">Select an option...</option>
+          <option value="planning">Planning Guidance</option>
+          <option value="celebration">Celebration Design</option>
+          <option value="tribute">Tribute Creation</option>
+          <option value="coordination">Event Coordination</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" placeholder="Share as much or as little as you feel comfortable..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Send Enquiry</button>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+                              <div class="footer-brand">
+        <a href="/" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          EVERMORE
+        </a>
+                <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
+          Dedicated to providing compassionate support and creating deeply personalized memorial services for your loved ones.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <div class="footer-links">
+          <a href="/" class="footer-link">Home</a>
+          <a href="/home-2.html" class="footer-link">Home 2</a>
+          <a href="/about.html" class="footer-link">About</a>
+          <a href="/services.html" class="footer-link">Services</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Planning</h4>
+        <div class="footer-links">
+          <a href="/life-celebration.html" class="footer-link">Life Celebration</a>
+          <a href="/pricing.html" class="footer-link">Pricing</a>
+          <a href="/resources.html" class="footer-link">Resources</a>
+          <a href="/contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Planning Guidance</a>
+          <a href="#" class="footer-link">Tribute Services</a>
+          <a href="#" class="footer-link">Venue Coordination</a>
+          <a href="#" class="footer-link">Event Coordination</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Evermore. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Accessibility</a>
+        <a href="#" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
