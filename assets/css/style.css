@@ -18,28 +18,28 @@
   --bg-secondary: var(--color-cream);
   --bg-tertiary: var(--color-taupe);
   --bg-overlay: rgba(253, 251, 247, 0.85);
-  
+
   --text-primary: var(--color-black);
   --text-secondary: #4A4A4A;
   --text-muted: #7A7A7A;
-  
+
   --accent-primary: var(--color-copper);
   --accent-hover: #9E6129;
-  
+
   --border-color: rgba(42, 42, 42, 0.1);
 
   /* Typography */
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'Inter', sans-serif;
-  
+
   /* Fluid Spacing */
-  --space-xs: clamp(0.5rem, 1vw, 0.75rem);
-  --space-sm: clamp(1rem, 2vw, 1.5rem);
-  --space-md: clamp(1.5rem, 3vw, 2.5rem);
-  --space-lg: clamp(2.5rem, 5vw, 4rem);
-  --space-xl: clamp(4rem, 8vw, 7rem);
-  --space-xxl: clamp(6rem, 12vw, 10rem);
-  
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 1.5vw, 1rem);
+  --space-md: clamp(1rem, 2vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 3vw, 2rem);
+  --space-xl: clamp(2rem, 4vw, 2.5rem);
+  --space-xxl: clamp(2.5rem, 5vw, 3rem);
+
   /* Fluid Typography */
   --text-xs: clamp(0.75rem, 0.8vw, 0.875rem);
   --text-sm: clamp(0.875rem, 1vw, 1rem);
@@ -49,7 +49,7 @@
   --text-xl: clamp(2rem, 3vw, 2.5rem);
   --text-xxl: clamp(2.5rem, 4vw, 3.5rem);
   --text-hero: clamp(3rem, 6vw, 5.5rem);
-  
+
   /* Layout */
   --container-width: 1400px;
   --container-padding: clamp(1.5rem, 5vw, 4rem);
@@ -57,13 +57,13 @@
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-full: 9999px;
-  
+
   /* Shadows & Depth */
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
   --shadow-modal: 0 30px 60px rgba(0, 0, 0, 0.12);
-  
+
   /* Transitions */
   --transition-fast: 200ms ease;
   --transition-normal: 400ms cubic-bezier(0.25, 1, 0.5, 1);
@@ -75,16 +75,16 @@
   --bg-secondary: #1E1E1E;
   --bg-tertiary: #2A2A2A;
   --bg-overlay: rgba(18, 18, 18, 0.85);
-  
+
   --text-primary: #F5F2EA;
   --text-secondary: #C0C0C0;
   --text-muted: #888888;
-  
+
   --accent-primary: #D4A373;
   --accent-hover: #E3B991;
-  
+
   --border-color: rgba(245, 242, 234, 0.1);
-  
+
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -92,7 +92,9 @@
 }
 
 /* Reset & Base Styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -115,17 +117,35 @@ body {
 }
 
 /* Typography Base */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 400;
   line-height: 1.1;
   color: var(--text-primary);
 }
 
-h1 { font-size: var(--text-hero); letter-spacing: -0.02em; }
-h2 { font-size: var(--text-xxl); letter-spacing: -0.01em; }
-h3 { font-size: var(--text-xl); }
-h4 { font-size: var(--text-lg); }
+h1 {
+  font-size: var(--text-hero);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-xxl);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+h4 {
+  font-size: var(--text-lg);
+}
 
 p {
   color: var(--text-secondary);
@@ -139,16 +159,22 @@ a {
   transition: color var(--transition-fast);
 }
 
-img, picture, video {
+img,
+picture,
+video {
   max-width: 100%;
   display: block;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font: inherit;
   color: inherit;
   border: none;
@@ -285,6 +311,7 @@ button {
     align-items: center;
     gap: 1rem;
   }
+
   .btn-group .btn {
     width: 100%;
     max-width: 100%;
@@ -356,6 +383,7 @@ button {
   position: relative;
   display: inline-block;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -369,20 +397,25 @@ button {
   left: 0;
   flex-direction: column;
 }
+
 .dropdown:hover .dropdown-content {
   display: flex;
 }
+
 .dropdown-content .nav-link {
   padding: 0.75rem 1rem;
 }
+
 .dropdown-content .nav-link::after {
   display: none;
 }
+
 .dropdown-content .nav-link:hover,
 .dropdown-content .nav-link.active {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
 }
+
 .nav-link.has-dropdown {
   display: flex;
   align-items: center;
@@ -465,13 +498,14 @@ button {
   width: 100%;
   max-width: 450px;
   height: 100vh;
+  height: 100dvh; /* Use dynamic viewport height if supported */
   background-color: var(--bg-primary);
   z-index: 100;
-  padding: 8rem 2rem 4rem;
+  padding: 6rem 2rem 8rem; /* Increased bottom padding to avoid cut-off */
   display: flex;
   flex-direction: column;
   transition: right var(--transition-normal);
-  box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
   overflow-y: auto;
 }
 
@@ -502,7 +536,7 @@ button {
 [dir="rtl"] .mobile-menu {
   right: auto;
   left: -100%;
-  box-shadow: 10px 0 30px rgba(0,0,0,0.05);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
   transition: left var(--transition-normal);
 }
 
@@ -570,18 +604,19 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
   z-index: 1;
 }
 
 [dir="rtl"] .hero-overlay {
-  background: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  color: #fff; /* Force white for dark overlays */
+  color: #fff;
+  /* Force white for dark overlays */
   max-width: 800px;
 }
 
@@ -621,11 +656,21 @@ button {
   background-color: var(--color-charcoal);
   color: var(--color-ivory);
 }
-.section-dark h2, .section-dark h3, .section-dark p {
+
+.section-dark h2,
+.section-dark h3,
+.section-dark p,
+.section-dark .accordion-inner {
   color: var(--color-ivory);
 }
-.section-dark p {
+
+.section-dark p,
+.section-dark .accordion-inner {
   opacity: 0.8;
+}
+
+.section-dark .accordion-num {
+  color: rgba(253, 251, 247, 0.6);
 }
 
 /* Cards & Layouts */
@@ -910,10 +955,21 @@ textarea.form-control {
   transform: translateY(0);
 }
 
-.stagger-1 { transition-delay: 100ms; }
-.stagger-2 { transition-delay: 200ms; }
-.stagger-3 { transition-delay: 300ms; }
-.stagger-4 { transition-delay: 400ms; }
+.stagger-1 {
+  transition-delay: 100ms;
+}
+
+.stagger-2 {
+  transition-delay: 200ms;
+}
+
+.stagger-3 {
+  transition-delay: 300ms;
+}
+
+.stagger-4 {
+  transition-delay: 400ms;
+}
 
 /* Memory Map (Home) */
 .memory-map-container {
@@ -943,6 +999,8 @@ textarea.form-control {
   font-family: var(--font-display);
   font-size: 1.6rem;
   letter-spacing: 0.05em;
+  color: var(--accent-primary);
+  font-weight: 600;
 }
 
 .orbit-node {
@@ -974,6 +1032,8 @@ textarea.form-control {
   font-size: 0.95rem;
   margin-bottom: 0.25rem;
   white-space: nowrap;
+  color: var(--accent-primary);
+  font-weight: 600;
 }
 
 .orbit-node p {
@@ -994,10 +1054,29 @@ textarea.form-control {
   margin-top: 0.25rem;
 }
 
-.node-1 { top: 10%; left: 50%; transform: translateX(-50%); }
-.node-2 { top: 50%; right: 10%; transform: translateY(-50%); }
-.node-3 { bottom: 10%; left: 50%; transform: translateX(-50%); }
-.node-4 { top: 50%; left: 10%; transform: translateY(-50%); }
+.node-1 {
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.node-2 {
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+}
+
+.node-3 {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.node-4 {
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+}
 
 .orbit-line {
   position: absolute;
@@ -1010,7 +1089,9 @@ textarea.form-control {
 }
 
 @keyframes spin {
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Accordion */
@@ -1080,11 +1161,12 @@ textarea.form-control {
   .nav-container {
     gap: 1rem;
   }
-  
-  .nav-menu, .nav-actions {
+
+  .nav-menu,
+  .nav-actions {
     display: none !important;
   }
-  
+
   .hamburger {
     display: flex !important;
   }
@@ -1092,11 +1174,11 @@ textarea.form-control {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .editorial-grid {
     grid-template-columns: repeat(8, 1fr);
   }
-  
+
   .card-grid-4 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1108,47 +1190,47 @@ textarea.form-control {
   .grid {
     grid-template-columns: 1fr !important;
   }
-  
+
   .hero-content {
     padding-top: 4rem;
   }
-  
+
   .memory-map-container {
     aspect-ratio: auto;
     height: 600px;
   }
-  
+
   .orbit-node {
     width: 100px;
     height: 100px;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .footer-brand {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .social-links {
     justify-content: center;
   }
-  
+
   .footer-bottom {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .editorial-grid {
     display: flex;
     flex-direction: column;
   }
-  
+
   /* Mobile controls at top of menu */
   .mobile-controls {
     justify-content: flex-start;
@@ -1156,27 +1238,29 @@ textarea.form-control {
 }
 
 @media (max-width: 480px) {
-  .card-grid-4, .card-grid-3 {
+
+  .card-grid-4,
+  .card-grid-3 {
     grid-template-columns: 1fr;
   }
-  
+
   .hero {
     text-align: center;
   }
-  
+
   .memory-map-container {
     flex-direction: column;
     height: auto;
     gap: 1rem;
   }
-  
+
   .memory-map-center {
     width: 100%;
     border-radius: var(--radius-lg);
     height: auto;
     padding: 2rem;
   }
-  
+
   .orbit-node {
     position: relative;
     top: auto !important;
@@ -1189,11 +1273,11 @@ textarea.form-control {
     height: auto;
     padding: 1.5rem;
   }
-  
+
   .orbit-line {
     display: none;
   }
-  
+
   .modal-container {
     padding: var(--space-md);
     width: 100%;
@@ -1203,8 +1287,15 @@ textarea.form-control {
     bottom: 0;
     transform: translateY(100%);
   }
-  
+
   .modal-overlay.active .modal-container {
     transform: translateY(0);
   }
+}
+
+/* Fix for mobile menu CTA button alignment and visibility on smaller screens */
+.mobile-menu .btn-primary {
+  margin: 0 auto 1rem auto !important;
+  align-self: center !important;
+  display: flex !important;
 }

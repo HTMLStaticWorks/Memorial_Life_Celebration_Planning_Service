@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EVERMORE | Pricing & Options</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .editorial-pricing-hero { padding: var(--space-xxl) 0; display: flex; align-items: center; justify-content: center; text-align: center; background-color: var(--bg-secondary); position: relative; min-height: 100vh; }
-    .editorial-hero-content { position: relative; z-index: 2; max-width: 800px; }
+    .editorial-hero-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
     
     .support-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .support-card { background: var(--bg-primary); border: 1px solid var(--border-color); padding: 3rem; border-radius: var(--radius-lg); display: flex; flex-direction: column; text-align: center; transition: transform var(--transition-normal); }
@@ -24,10 +25,10 @@
     
     @media (max-width: 1024px) {
       .support-options { grid-template-columns: repeat(2, 1fr); }
-      .support-card:nth-child(3) { grid-column: 1 / -1; max-width: 50%; margin: 0 auto; }
+      .support-card:nth-child(3) { grid-column: 1 / -1; width: calc(50% - 1rem); justify-self: center; margin: 0; max-width: none; }
     }
     
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       .support-options { grid-template-columns: 1fr; }
       .support-card { padding: 2rem 1.5rem; }
       .support-card:nth-child(3) { max-width: 100%; grid-column: auto; }
@@ -41,7 +42,7 @@
   <div class="container nav-container">
                 <div class="nav-brand">
       <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
         EVERMORE
       </a>
     </div>
@@ -108,10 +109,14 @@
 
 
 
-<section class="editorial-pricing-hero">
-  <div class="container editorial-hero-content reveal">
-    <h1 style="margin-bottom: 1.5rem;">Clear guidance. Thoughtful planning.</h1>
-    <p style="font-size: var(--text-lg);">Every family and celebration is different, so our planning options are designed around the support you actually need.</p>
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/images/pricing_hero.jpg" alt="Pricing">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content text-center" style="margin: 0 auto;">
+    <h1 class="reveal" style="margin-bottom: 1.5rem; color: #fff;">Clear guidance.<br>Thoughtful planning.</h1>
+    <p class="reveal stagger-1" style="font-size: var(--text-lg); color: rgba(255,255,255,0.9);">Every family and celebration is different, so our planning options<br>are designed around the support you actually need.</p>
   </div>
 </section>
 
@@ -211,10 +216,53 @@
   </div>
 </section>
 
-<section class="section text-center">
+<section class="section section-dark timeline-section" style="background-color: var(--color-charcoal); color: white;">
   <div class="container reveal">
-    <h2 style="margin-bottom: 1.5rem;">Let's talk about what your family needs.</h2>
-    <a href="#" class="btn btn-primary open-modal">Request a Conversation</a>
+    <div style="max-width: 700px; margin: 0 auto 4rem auto; text-align: center;">
+      <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: #fff;">Our Commitment to Transparency</h2>
+      <p style="font-size: var(--text-lg); color: rgba(255,255,255,0.8); line-height: 1.6;">We believe in complete clarity from our very first conversation. Our process ensures you know exactly what to expect.</p>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; gap: 3rem; max-width: 800px; margin: 0 auto; position: relative;">
+      <!-- Vertical line -->
+      <div style="position: absolute; left: 24px; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.2);"></div>
+      
+      <div style="display: flex; gap: 2rem; align-items: flex-start; position: relative; z-index: 1;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--color-black); border: 1px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent-primary); font-family: var(--font-display); font-size: 1.2rem;">1</div>
+        <div>
+          <h3 style="color: #fff; font-size: var(--text-xl); margin-bottom: 0.5rem;">Initial Discovery</h3>
+          <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">A complimentary consultation where we simply listen. We learn about your loved one, your family's needs, and how you envision honoring their memory.</p>
+        </div>
+      </div>
+      
+      <div style="display: flex; gap: 2rem; align-items: flex-start; position: relative; z-index: 1;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--color-black); border: 1px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent-primary); font-family: var(--font-display); font-size: 1.2rem;">2</div>
+        <div>
+          <h3 style="color: #fff; font-size: var(--text-xl); margin-bottom: 0.5rem;">Customized Proposal</h3>
+          <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Within 48 hours, we present a fully itemized proposal. There are no hidden fees or surprise costs—just clear, transparent pricing based on the support you requested.</p>
+        </div>
+      </div>
+      
+      <div style="display: flex; gap: 2rem; align-items: flex-start; position: relative; z-index: 1;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent-primary); border: 1px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; font-family: var(--font-display); font-size: 1.2rem;">3</div>
+        <div>
+          <h3 style="color: #fff; font-size: var(--text-xl); margin-bottom: 0.5rem;">Seamless Execution</h3>
+          <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Once approved, our team begins securing venues, coordinating vendors, and designing the tribute, allowing your family to focus on what truly matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container reveal">
+    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); border-top: 4px solid var(--accent-primary); padding: 5rem 2rem; text-align: center; box-shadow: var(--shadow-md); position: relative;">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">Let's talk about what your family needs.</h2>
+        <p style="font-size: var(--text-md); color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">Our planning team is here to listen, answer your questions, and help you find the right level of support.</p>
+        <a href="#" class="btn btn-primary open-modal">Request a Conversation</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -223,7 +271,7 @@
     <div class="footer-grid">
                               <div class="footer-brand">
         <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
           EVERMORE
         </a>
                 <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>

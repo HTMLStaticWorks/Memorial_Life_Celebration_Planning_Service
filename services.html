@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EVERMORE | Services</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .services-hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: flex-end; padding: var(--space-xxl) 0; }
@@ -16,18 +17,25 @@
     .service-nav a:hover { color: #fff; }
     
     .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; }
-    .service-card { background: var(--bg-primary); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; font-size: var(--text-md); font-weight: 500; transition: all var(--transition-normal); box-shadow: var(--shadow-sm); color: var(--text-primary); cursor: default; }
-    .service-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 1rem; display: block; }
+    .service-card { background: var(--bg-primary); padding: 0 0 1.5rem 0; border: 1px solid var(--border-color); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; font-size: var(--text-md); font-weight: 500; transition: all var(--transition-normal); box-shadow: var(--shadow-sm); color: var(--text-primary); cursor: default; overflow: hidden; }
+    .service-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 0 !important; margin-bottom: 1.5rem; display: block; }
+    .service-card span { padding: 0 1.5rem; }
     .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--color-copper); }
     
     .service-detail-row { display: flex; gap: 4rem; align-items: center; margin-bottom: 8rem; }
     .service-detail-row:nth-child(even) { flex-direction: row-reverse; }
+    .service-detail-row:last-child { margin-bottom: 0 !important; }
     .service-detail-img { width: 50%; flex: 0 0 calc(50% - 2rem); aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-lg); }
     .service-detail-text { width: 50%; flex: 0 0 calc(50% - 2rem); }
     
-    @media (max-width: 768px) {
-      .services-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .service-card { padding: 1.5rem 1rem; font-size: 0.85rem; }
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    }
+    
+    @media (max-width: 767px) {
+      .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .service-card { padding: 0 0 1.5rem 0; font-size: 0.85rem; }
+      .service-card span { padding: 0 1rem; }
       
       .service-detail-row { flex-direction: column !important; gap: 2rem; margin-bottom: 4rem; text-align: center; }
       .service-detail-img, .service-detail-text { width: 100%; flex: none; }
@@ -42,7 +50,7 @@
   <div class="container nav-container">
                 <div class="nav-brand">
       <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
         EVERMORE
       </a>
     </div>
@@ -109,19 +117,17 @@
 
 
 
-<section class="services-hero" style="background-color: var(--bg-secondary); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-  <div class="container services-hero-content reveal stagger-1" style="display: flex; flex-direction: column; align-items: center; color: var(--text-primary);">
-    <h1 style="max-width: 800px; color: var(--text-primary); text-align: center;">Thoughtful support from first conversation to final farewell.</h1>
-    <div class="service-nav" style="border-top-color: var(--border-color); justify-content: center; flex-wrap: wrap;">
-      <a href="#planning" style="color: var(--text-secondary);">Celebration Planning</a>
-      <a href="#venue" style="color: var(--text-secondary);">Venue Coordination</a>
-      <a href="#tribute" style="color: var(--text-secondary);">Tribute Creation</a>
-      <a href="#day-of" style="color: var(--text-secondary);">Event-Day Coordination</a>
-    </div>
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/images/services_hero.jpg" alt="Services">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content text-center" style="margin: 0 auto;">
+    <h1 class="reveal" style="max-width: 800px; color: #fff; text-align: center;">Thoughtful support from first conversation to final farewell.</h1>
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section">
   <div class="container text-center">
     <h2 class="reveal">Service Constellation</h2>
     <p class="reveal stagger-1" style="margin: 0 auto; max-width: 600px; color: var(--text-secondary);">Everything required for a beautiful gathering.</p>
@@ -201,11 +207,15 @@
   </div>
 </section>
 
-<section class="section section-alt text-center">
+<section class="section">
   <div class="container reveal">
-    <h2 style="margin-bottom: 1rem;">Not sure where to begin?</h2>
-    <p style="margin: 0 auto 3rem auto;">Tell us what you need and we will help you understand the options.</p>
-    <a href="#" class="btn btn-primary open-modal">Request Guidance</a>
+    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); border-top: 4px solid var(--accent-primary); padding: 5rem 2rem; text-align: center; box-shadow: var(--shadow-md); position: relative;">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">Not sure where to begin?</h2>
+        <p style="font-size: var(--text-md); color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">Tell us what you need and we will help you understand the options.</p>
+        <a href="#" class="btn btn-primary open-modal">Request Guidance</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -214,7 +224,7 @@
     <div class="footer-grid">
                               <div class="footer-brand">
         <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
           EVERMORE
         </a>
                 <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>

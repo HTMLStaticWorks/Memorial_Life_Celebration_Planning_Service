@@ -4,34 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EVERMORE | Life Celebration</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .circular-interface { display: flex; align-items: center; justify-content: center; height: 600px; position: relative; margin-top: 4rem; }
-    .circle-nav { position: absolute; width: 100%; height: 100%; border: 1px solid var(--border-color); border-radius: 50%; max-width: 600px; }
-    .circle-item { position: absolute; background: var(--bg-primary); padding: 0.5rem 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-full); font-size: var(--text-sm); cursor: pointer; transition: all var(--transition-fast); }
-    .circle-item:hover, .circle-item.active { background: var(--color-charcoal); color: var(--color-ivory); border-color: var(--color-charcoal); }
+    .experience-split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 4rem; align-items: start; }
+    .experience-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .experience-item { padding: 1.5rem 2rem; border-left: 3px solid transparent; cursor: pointer; transition: all var(--transition-fast); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .experience-item.active, .experience-item:hover { border-left-color: var(--accent-primary); background: rgba(0,0,0,0.03); }
+    .experience-item h3 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: 0.5rem; color: var(--text-primary); }
+    .experience-item p { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0; }
+    .experience-image-container { position: sticky; top: 120px; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-lg); transition: opacity 0.3s ease; }
+    .experience-image-container img { width: 100%; height: 100%; object-fit: cover; }
     
-    /* Position elements in circle approx */
-    .ci-1 { top: -20px; left: 50%; transform: translateX(-50%); }
-    .ci-2 { top: 15%; right: 5%; }
-    .ci-3 { top: 50%; right: -30px; transform: translateY(-50%); }
-    .ci-4 { bottom: 15%; right: 5%; }
-    .ci-5 { bottom: -20px; left: 50%; transform: translateX(-50%); }
-    .ci-6 { bottom: 15%; left: 5%; }
-    .ci-7 { top: 50%; left: -30px; transform: translateY(-50%); }
-    .ci-8 { top: 15%; left: 5%; }
+    .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .split-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3; }
+    .split-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .split-image:hover img { transform: scale(1.05); }
+    @media (max-width: 992px) {
+      .split-layout { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .split-layout > .split-image { order: -1; }
+    }
     
-    .circle-content { text-align: center; max-width: 300px; padding: 2rem; background: var(--bg-primary); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); z-index: 10; }
-    
-    .tribute-video-section { background: var(--color-black); color: #fff; padding: var(--space-xxl) 0; }
-    .video-player { background: #000; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-top: 3rem; border: 1px solid rgba(255,255,255,0.1); }
-    .video-player img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
-    .play-btn { position: absolute; width: 80px; height: 80px; background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform var(--transition-fast); }
-    .play-btn:hover { transform: scale(1.1); background: rgba(255,255,255,0.3); }
-    .play-btn svg { fill: #fff; margin-left: 5px; }
-    .video-timeline { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1rem 2rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); display: flex; gap: 1rem; align-items: center; }
-    .progress-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; }
-    .progress-fill { width: 35%; height: 100%; background: var(--color-copper); border-radius: 2px; }
+    .horizontal-card { display: flex; background: var(--bg-primary); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); margin: 4rem 0; }
+    .horizontal-card-img { flex: 1; min-height: 400px; }
+    .horizontal-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .horizontal-card-body { flex: 1; padding: 4rem; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    @media (max-width: 992px) {
+      .horizontal-card { flex-direction: column; }
+      .horizontal-card-img { min-height: 300px; }
+      .horizontal-card-body { padding: 3rem 2rem; text-align: center; align-items: center; }
+    }
     
     .collage-section { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--bg-secondary); padding: 4rem 2rem; }
     .c-img { position: absolute; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); transition: transform var(--transition-slow); }
@@ -42,10 +44,11 @@
     .c-img-3 { width: 25%; aspect-ratio: 3/4; bottom: 5%; right: 15%; z-index: 3; border: 10px solid var(--bg-secondary); }
     .collage-center { z-index: 10; text-align: center; background: rgba(250, 248, 245, 0.75); padding: 5rem 6rem; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: var(--radius-xl); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: var(--shadow-xl); max-width: 800px; width: 100%; margin: 0 auto; }
     
+    @media (max-width: 992px) {
+      .experience-split { grid-template-columns: 1fr; gap: 2rem; }
+      .experience-image-container { position: relative; top: 0; order: -1; aspect-ratio: 16/9; }
+    }
     @media (max-width: 768px) {
-      .circular-interface { height: auto; flex-direction: column; gap: 2rem; }
-      .circle-nav { position: relative; width: 100%; height: auto; border: none; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
-      .circle-item { position: relative; top: auto; left: auto; right: auto; bottom: auto; transform: none; }
       .c-img { display: none; }
       .collage-center { padding: 3rem 1.5rem; }
       .collage-center .btn { white-space: nowrap; padding: 1rem 1.5rem; font-size: 0.8rem; }
@@ -57,7 +60,7 @@
   <div class="container nav-container">
                 <div class="nav-brand">
       <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
         EVERMORE
       </a>
     </div>
@@ -123,52 +126,104 @@
 </div>
 
 <!-- SECTION 01: HERO -->
-<section class="hero-home" style="min-height: 100vh; background-color: var(--bg-secondary); display: flex; align-items: center; justify-content: center; padding-top: 4rem;">
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/images/life_celebration_hero.jpg" alt="Life Celebration">
+  </div>
+  <div class="hero-overlay"></div>
   <div class="container hero-content text-center" style="margin: 0 auto;">
-    <h1 class="reveal" style="color: var(--text-primary); margin-bottom: 1.5rem;">A celebration shaped around a life, not a template.</h1>
+    <h1 class="reveal" style="color: #fff; margin-bottom: 1.5rem;">A celebration shaped around a life, not a template.</h1>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2 class="text-center reveal">Building the Experience</h2>
+    <div class="text-center reveal" style="margin-bottom: 4rem;">
+      <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); color: var(--text-primary); margin-bottom: 1rem;">Building the Experience</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: var(--text-md);">Every element is thoughtfully curated to reflect the individual and create a deeply meaningful atmosphere.</p>
+    </div>
     
-    <div class="circular-interface reveal stagger-1">
-      <div class="circle-nav">
-        <div class="circle-item ci-1 active">Venue</div>
-        <div class="circle-item ci-2">Music</div>
-        <div class="circle-item ci-3">Readings</div>
-        <div class="circle-item ci-4">Memories</div>
-        <div class="circle-item ci-5">Photos</div>
-        <div class="circle-item ci-6">Flowers</div>
-        <div class="circle-item ci-7">Tribute</div>
-        <div class="circle-item ci-8">Gathering</div>
+    <div class="experience-split reveal stagger-1">
+      <div class="experience-list">
+        <div class="experience-item active" data-img="assets/images/Venue.png">
+          <h3>Venue</h3>
+          <p>Selecting a space that feels appropriate, whether a quiet garden, a gallery, or an elegant hall.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/music2.png">
+          <h3>Music</h3>
+          <p>Curating a soundtrack that resonates, from classical quartets to favorite acoustic songs.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/Readings.png">
+          <h3>Readings</h3>
+          <p>Choosing poetry, literature, or personal passages that capture their spirit and life philosophy.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/Memories.png">
+          <h3>Memories</h3>
+          <p>Structuring time for friends and family to share stories, anecdotes, and reflections.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/photos.png">
+          <h3>Photos</h3>
+          <p>Displaying visual histories in elegant, understated ways that invite guests to remember.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/Flowers.png">
+          <h3>Flowers</h3>
+          <p>Designing floral arrangements that reflect their personality, using their favorite colors.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/tribute2.png">
+          <h3>Tribute</h3>
+          <p>Creating a cinematic video story or premium memory book as a lasting keepsake.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/Gathering2.png">
+          <h3>Gathering</h3>
+          <p>Coordinating a seamless reception where guests can connect, support, and celebrate.</p>
+        </div>
       </div>
-      <div class="circle-content">
-        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Venue</h3>
-        <p style="font-size: var(--text-sm);">Selecting a space that feels appropriate, whether a quiet garden, a gallery, or an elegant hall.</p>
+      <div class="experience-image-container">
+        <img id="experience-img" src="assets/images/Venue.png" alt="Experience Detail">
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll('.experience-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+          document.querySelectorAll('.experience-item').forEach(el => el.classList.remove('active'));
+          this.classList.add('active');
+          document.getElementById('experience-img').src = this.getAttribute('data-img');
+        });
+      });
+    </script>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container">
+    <div class="split-layout reveal stagger-1">
+      <div class="split-text">
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: #fff;">The Tribute Experience</h2>
+        <p style="font-size: var(--text-md); margin-bottom: 2.5rem; color: rgba(255,255,255,0.8); line-height: 1.6;">A cinematic narrative of the moments that mattered. Our studio editors craft meaningful visual stories from your photographs and videos, turning memories into a beautiful, lasting keepsake.</p>
+        <div class="mobile-center-container">
+          <a href="#" class="btn btn-primary open-modal">Discuss a Tribute Video</a>
+        </div>
+      </div>
+      <div class="split-image">
+        <img src="assets/images/The Tribute Experience.png" alt="Video Tribute Creation">
       </div>
     </div>
   </div>
 </section>
 
-<section class="tribute-video-section">
+<section class="section section-alt">
   <div class="container">
-    <div class="text-center reveal">
-      <h2 style="color: #fff; margin-bottom: 1rem;">The Tribute Experience</h2>
-      <p style="color: rgba(255,255,255,0.7); margin: 0 auto 2rem auto; max-width: 600px;">A cinematic narrative of the moments that mattered.</p>
-      <a href="#" class="btn btn-primary open-modal">Discuss a Tribute Video</a>
-    </div>
-    
-    <div class="video-player reveal stagger-1">
-      <img src="assets/images/memory_details.jpg" alt="Video frame">
-      <div class="play-btn">
-        <svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"></path></svg>
+    <div class="horizontal-card reveal stagger-1">
+      <div class="horizontal-card-img">
+        <img src="assets/images/A Space to Remember..png" alt="Memory Displays">
       </div>
-      <div class="video-timeline">
-        <span style="font-size: 0.8rem; font-family: monospace;">01:24</span>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-        <span style="font-size: 0.8rem; font-family: monospace;">05:30</span>
+      <div class="horizontal-card-body">
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">A Space to Remember</h2>
+        <p style="font-size: var(--text-md); margin-bottom: 2.5rem; color: var(--text-secondary); line-height: 1.6;">Beyond video tributes, we offer elegant ways to display visual histories throughout the gathering space. We design understated, beautiful memory stations that invite guests to pause, reflect, and share their own stories.</p>
+        <div class="mobile-center-container">
+          <a href="#" class="btn btn-primary open-modal">Explore Memory Displays</a>
+        </div>
       </div>
     </div>
   </div>
@@ -186,7 +241,7 @@
     <div class="footer-grid">
                               <div class="footer-brand">
         <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
           EVERMORE
         </a>
                 <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>

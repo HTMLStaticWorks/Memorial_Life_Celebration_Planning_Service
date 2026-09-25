@@ -4,35 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EVERMORE | About</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .hero-home { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
     
     .manifesto-section { background: var(--bg-primary); color: var(--text-primary); padding: var(--space-xxl) 0; }
     .manifesto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .manifesto-item { background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 3rem; border-radius: var(--radius-lg); text-align: center; display: flex; flex-direction: column; align-items: center; transition: transform var(--transition-normal); }
+    .manifesto-item { background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 0 0 3rem 0; border-radius: var(--radius-lg); text-align: center; display: flex; flex-direction: column; align-items: center; transition: transform var(--transition-normal); overflow: hidden; }
     .manifesto-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-    .manifesto-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block; }
-    .manifesto-num { font-size: 4rem; font-family: var(--font-display); line-height: 1; color: var(--color-copper); opacity: 0.8; margin-bottom: 1.5rem; }
+    .manifesto-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2rem; display: block; }
+    .manifesto-num { font-size: 4rem; font-family: var(--font-display); line-height: 1; color: var(--color-copper); opacity: 0.8; margin-bottom: 1.5rem; padding: 0 2rem; }
+    .manifesto-text { padding: 0 2rem; width: 100%; }
     .manifesto-text h3 { color: var(--text-primary); margin-bottom: 1rem; font-size: var(--text-xl); white-space: nowrap; }
     .manifesto-text p { color: var(--text-secondary); font-size: var(--text-md); }
     
     .approach-slider { display: flex; gap: 2rem; overflow-x: auto; padding: 2rem 0; scrollbar-width: none; scroll-snap-type: x mandatory; }
     .approach-slider::-webkit-scrollbar { display: none; }
-    .approach-card { flex: 0 0 calc(33.333% - 1.333rem); scroll-snap-align: start; background: var(--bg-primary); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); text-align: center; }
+    .approach-card { flex: 0 0 calc(33.333% - 1.333rem); scroll-snap-align: start; background: var(--bg-primary); padding: 0 0 3rem 0; border-radius: var(--radius-lg); border: 1px solid var(--border-color); text-align: center; overflow: hidden; }
+    .approach-card img { border-radius: 0 !important; margin-bottom: 2rem !important; aspect-ratio: 16/9; object-fit: cover; }
+    .approach-card h3, .approach-card p { padding: 0 2rem; }
     
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
     .team-member { text-align: center; }
     .team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: 1.5rem; transition: transform var(--transition-normal); }
     .team-member:hover .team-img { transform: translateY(-10px); }
     
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
+      .manifesto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .manifesto-item { width: 100%; }
+      .manifesto-item:last-child { grid-column: 1 / -1; width: calc(50% - 1rem); justify-self: center; }
+    }
+    
+    @media (max-width: 767px) {
       .about-hero { flex-direction: column; }
       .about-img { position: relative; width: 100%; height: 400px; }
       .about-hero-content { width: 100%; padding: 2rem 0; }
-      .manifesto-grid { grid-template-columns: 1fr; }
+      .manifesto-grid { display: grid; grid-template-columns: 1fr; }
       .manifesto-item { width: 100%; }
       .team-grid { grid-template-columns: 1fr; }
+      
+      .approach-slider { flex-direction: column; gap: 2rem; overflow-x: hidden; padding-bottom: 0; }
+      .approach-card { flex: 1 1 auto; width: 100%; }
+      .slider-controls { display: none !important; }
     }
   </style>
 </head>
@@ -42,7 +56,7 @@
   <div class="container nav-container">
                 <div class="nav-brand">
       <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
         EVERMORE
       </a>
     </div>
@@ -110,11 +124,15 @@
 
 
 <!-- SECTION 01: HERO -->
-<section class="hero-home" style="min-height: 100vh; background-color: var(--bg-secondary);">
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/images/about_hero.jpg" alt="Our Story" style="object-position: center 20%;">
+  </div>
+  <div class="hero-overlay"></div>
   <div class="container hero-content text-center" style="margin: 0 auto;">
-    <span class="eyebrow" style="color: var(--color-copper);">OUR STORY</span>
-    <h1 class="reveal" style="margin-bottom: 2rem; color: var(--text-primary);">Carefully planned. Deeply personal.</h1>
-    <p class="reveal stagger-1" style="font-size: var(--text-lg); max-width: 700px; margin: 0 auto; color: var(--text-secondary);">We believe that a life celebration should be as unique as the person being remembered. We founded Evermore to provide families with a modern, compassionate alternative to traditional arrangements.</p>
+    <span class="eyebrow" style="color: var(--color-copper-muted);">OUR STORY</span>
+    <h1 class="reveal" style="margin-bottom: 2rem; color: #fff;">Carefully planned. Deeply personal.</h1>
+    <p class="reveal stagger-1" style="font-size: var(--text-lg); max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9);">We believe that a life celebration should be as unique as the person being remembered. We founded Evermore to provide families with a modern, compassionate alternative to traditional arrangements.</p>
   </div>
 </section>
 
@@ -157,7 +175,7 @@
   <div class="container">
     <div class="reveal" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
       <h2 style="margin: 0;">Our Approach</h2>
-      <div style="display: flex; gap: 1rem;">
+      <div class="slider-controls" style="display: flex; gap: 1rem;">
         <button class="icon-btn" style="border: 1px solid var(--border-color); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-primary); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='var(--color-charcoal)'; this.style.color='var(--color-ivory)'" onmouseout="this.style.background='var(--bg-primary)'; this.style.color='currentColor'" onclick="document.querySelector('.approach-slider').scrollBy({left: -400, behavior: 'smooth'})">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>
         </button>
@@ -232,7 +250,7 @@
     <div class="footer-grid">
                               <div class="footer-brand">
         <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
           EVERMORE
         </a>
                 <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>

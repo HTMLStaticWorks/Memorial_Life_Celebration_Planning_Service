@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EVERMORE | Contact</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .contact-hero { min-height: 100vh; padding-top: 5rem; display: flex; align-items: center; justify-content: center; text-align: center; background-color: var(--bg-secondary); position: relative; }
@@ -12,8 +13,10 @@
     .contact-form-card { background: var(--bg-primary); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); max-width: 800px; margin: 4rem auto 4rem auto; position: relative; z-index: 10; }
     
     .ways-to-help { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem 0 4rem 0; position: relative; z-index: 10; }
-    .help-block { text-align: center; }
-    .help-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; color: var(--accent-primary); }
+    .help-block { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.5rem 1.5rem; text-align: center; box-shadow: var(--shadow-sm); transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+    .help-block:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .help-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; color: var(--accent-primary); transition: background var(--transition-fast); }
+    .help-block:hover .help-icon { background: var(--bg-primary); }
     
     .faq-section { background-color: var(--bg-primary); padding: var(--space-xxl) 0; }
     .faq-container { max-width: 800px; margin: 0 auto; text-align: left; }
@@ -40,7 +43,7 @@
   <div class="container nav-container">
                 <div class="nav-brand">
       <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+        <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
         EVERMORE
       </a>
     </div>
@@ -107,10 +110,14 @@
 
 
 
-<section class="contact-hero">
-  <div class="container contact-hero-content reveal">
-    <h1 style="margin-bottom: 1.5rem;">A conversation can begin whenever you're ready.</h1>
-    <p style="font-size: var(--text-lg); margin-bottom: 2rem;">Reach out with as much or as little information as you feel comfortable sharing.</p>
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/images/contact_hero.jpg" alt="Contact">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content text-center" style="margin: 0 auto;">
+    <h1 class="reveal" style="margin-bottom: 1.5rem; color: #fff;">A conversation can begin whenever you're ready.</h1>
+    <p class="reveal stagger-1" style="font-size: var(--text-lg); margin-bottom: 2rem; color: rgba(255,255,255,0.9);">Reach out with as much or as little information as you feel comfortable sharing.</p>
   </div>
 </section>
 
@@ -211,14 +218,6 @@
   </div>
 </section>
 
-<section class="section section-alt text-center">
-  <div class="container reveal">
-    <h2 style="margin-bottom: 1.5rem;">You don't need to have everything figured out.</h2>
-    <p style="margin: 0 auto 3rem auto;">We can begin with a simple conversation.</p>
-    <a href="#" class="btn btn-primary open-modal">Start a Conversation</a>
-  </div>
-</section>
-
 <!-- FAQ SECTION -->
 <section class="faq-section">
   <div class="container reveal">
@@ -263,6 +262,18 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container reveal">
+    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); border-top: 4px solid var(--accent-primary); padding: 5rem 2rem; text-align: center; box-shadow: var(--shadow-md); position: relative;">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">You don't need to have everything figured out.</h2>
+        <p style="font-size: var(--text-md); color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">We can begin with a simple conversation.</p>
+        <a href="#" class="btn btn-primary open-modal">Start a Conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
@@ -285,7 +296,7 @@
     <div class="footer-grid">
                               <div class="footer-brand">
         <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4.5 3-4.5 8s4.5 12 4.5 12 4.5-7 4.5-12-4.5-8-4.5-8z"></path></svg>
+          <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
           EVERMORE
         </a>
                 <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
