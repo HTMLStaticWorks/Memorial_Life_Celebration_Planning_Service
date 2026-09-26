@@ -820,6 +820,7 @@ textarea.form-control {
   margin-bottom: 2rem;
   text-align: center;
 }
+.modal-header { padding: 0 3rem; }
 
 /* Footer */
 .footer {
@@ -1298,4 +1299,15 @@ textarea.form-control {
   margin: 0 auto 1rem auto !important;
   align-self: center !important;
   display: flex !important;
+}
+
+/* Dark mode specific navbar button styling */
+[data-theme="dark"] .nav-actions .btn-primary,
+[data-theme="dark"] .mobile-menu .btn-primary {
+  background-color: var(--color-copper);
+  color: #ffffff;
+}
+[data-theme="dark"] .nav-actions .btn-primary:hover,
+[data-theme="dark"] .mobile-menu .btn-primary:hover {
+  background-color: var(--accent-hover);
 }

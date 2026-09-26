@@ -16,7 +16,7 @@
     .manifesto-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2rem; display: block; }
     .manifesto-num { font-size: 4rem; font-family: var(--font-display); line-height: 1; color: var(--color-copper); opacity: 0.8; margin-bottom: 1.5rem; padding: 0 2rem; }
     .manifesto-text { padding: 0 2rem; width: 100%; }
-    .manifesto-text h3 { color: var(--text-primary); margin-bottom: 1rem; font-size: var(--text-xl); white-space: nowrap; }
+    .manifesto-text h3 { color: var(--text-primary); margin-bottom: 1rem; font-size: var(--text-xl); }
     .manifesto-text p { color: var(--text-secondary); font-size: var(--text-md); }
     
     .approach-slider { display: flex; gap: 2rem; overflow-x: auto; padding: 2rem 0; scrollbar-width: none; scroll-snap-type: x mandatory; }
@@ -41,7 +41,7 @@
       .about-img { position: relative; width: 100%; height: 400px; }
       .about-hero-content { width: 100%; padding: 2rem 0; }
       .manifesto-grid { display: grid; grid-template-columns: 1fr; }
-      .manifesto-item { width: 100%; }
+      .manifesto-item, .manifesto-item:last-child { width: 100%; }
       .team-grid { grid-template-columns: 1fr; }
       
       .approach-slider { flex-direction: column; gap: 2rem; overflow-x: hidden; padding-bottom: 0; }
