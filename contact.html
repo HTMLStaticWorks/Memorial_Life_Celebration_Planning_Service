@@ -33,8 +33,38 @@
       .ways-to-help { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
-      .contact-form-card { padding: 2rem; margin: 2rem auto; border-radius: 0; box-shadow: none; border-left: none; border-right: none; }
+      .contact-form-card { 
+        padding: 1.75rem 1.25rem; 
+        margin: 2rem auto; 
+        border-radius: var(--radius-lg); 
+        box-shadow: none; 
+      }
+      .contact-form-card .btn,
+      .contact-form-card button[type="submit"] {
+        width: 100% !important;
+        padding: 0.85rem 1rem !important;
+        font-size: 0.825rem !important;
+        letter-spacing: 0.03em !important;
+        white-space: normal !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
       .ways-to-help { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .contact-form-card {
+        padding: 1.5rem 1rem;
+      }
+      .contact-form-card .btn,
+      .contact-form-card button[type="submit"] {
+        font-size: 0.775rem !important;
+        padding: 0.85rem 0.75rem !important;
+        letter-spacing: 0.02em !important;
+      }
     }
   </style>
 </head>
@@ -43,11 +73,13 @@
 <nav class="navbar">
   <div class="container nav-container">
                 <div class="nav-brand">
-      <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
+      <a href="index.html" class="nav-brand-link">
         <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
-        EVERMORE
+        <div class="nav-brand-text">
+          <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">EVERMORE</span>
+          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Memorial &amp; Life</span><span style="display: block; white-space: nowrap;">Celebration Planning</span></span>
+        </div>
       </a>
-      <span class="nav-descriptor">Memorial &amp; Life Celebration Planning</span>
     </div>
     
     <div class="nav-menu">
@@ -210,6 +242,21 @@
         </div>
         
         <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Submit Consultation Enquiry</button>
+        
+        <div class="social-links" style="margin-top: 1.5rem; justify-content: center; align-items: center; display: flex; gap: 1rem;">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
       </form>
     </div>
     
@@ -313,11 +360,13 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; white-space: nowrap; line-height: 1;">
+        <a href="index.html" class="nav-brand-link" style="margin-bottom: 1rem;">
           <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
-          EVERMORE
+          <div class="nav-brand-text">
+          <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">EVERMORE</span>
+          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Memorial &amp; Life</span><span style="display: block; white-space: nowrap;">Celebration Planning</span></span>
+        </div>
         </a>
-        <span class="nav-descriptor" style="display: block; margin-bottom: 1rem;">Memorial &amp; Life Celebration Planning</span>
         <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
         <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
           Dedicated to providing compassionate guidance and creating deeply personalized memorial services and celebrations of life.

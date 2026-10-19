@@ -486,8 +486,26 @@ button {
 
 .nav-brand {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   z-index: 101;
+}
+
+.nav-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-logo {
+  flex-shrink: 0;
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .nav-logo-text {
@@ -495,14 +513,32 @@ button {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.1em;
+  line-height: 1.1;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .nav-descriptor {
+  font-family: var(--font-body);
   font-size: 0.65rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--text-muted);
+  line-height: 1.35;
+  margin-top: 2px;
+  display: block;
+}
+
+.nav-descriptor span {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Fallback if nav-descriptor is placed directly in brand */
+.nav-brand > .nav-descriptor,
+.footer-brand > .nav-descriptor {
+  margin-left: calc(28px + 0.6rem);
 }
 
 .nav-menu {
@@ -1661,3 +1697,36 @@ textarea.form-control {
 [data-theme="dark"] .mobile-menu .btn-primary:hover {
   background-color: var(--accent-hover);
 }
+
+@media (max-width: 400px) {
+  .nav-brand-text .nav-logo-text {
+    font-size: 1.3rem;
+  }
+  .nav-brand-text .nav-descriptor {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Form Submit Button Mobile Protection */
+@media (max-width: 768px) {
+  form .btn.w-full,
+  .contact-form-card .btn {
+    white-space: normal !important;
+    padding: 0.85rem 1rem !important;
+    font-size: 0.825rem !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.3 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  form .btn.w-full,
+  .contact-form-card .btn {
+    font-size: 0.775rem !important;
+    padding: 0.85rem 0.75rem !important;
+    letter-spacing: 0.02em !important;
+  }
+}
+
