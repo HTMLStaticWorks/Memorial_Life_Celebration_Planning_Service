@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EVERMORE | Resources</title>
+  <title>Memorial &amp; Life Celebration Resources | Evermore Planning Service</title>
+  <meta name="description" content="Explore thoughtful memorial planning guides, celebration of life checklists, eulogy templates, and compassionate practical advice.">
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .resources-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 5rem; background: var(--bg-secondary); }
+    .resources-hero { min-height: 52vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 5rem; background: var(--bg-secondary); }
     
     .filter-nav { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-    .filter-btn { padding: 0.5rem 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-full); font-size: var(--text-sm); cursor: pointer; background: var(--bg-primary); transition: all var(--transition-fast); }
-    .filter-btn:hover, .filter-btn.active { background: var(--color-charcoal); color: var(--color-ivory); border-color: var(--color-charcoal); }
+    .filter-btn { padding: 0.6rem 1.6rem; border: 1px solid var(--border-color); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 500; cursor: pointer; background: var(--bg-primary); color: var(--text-primary); transition: all var(--transition-fast); }
+    .filter-btn:hover, .filter-btn.active { background: var(--color-copper); color: #ffffff; border-color: var(--color-copper); box-shadow: 0 4px 14px rgba(184, 115, 51, 0.3); }
+    [data-theme="dark"] .filter-btn { background: var(--bg-secondary); border-color: var(--border-color); color: var(--text-secondary); }
+    [data-theme="dark"] .filter-btn:hover, [data-theme="dark"] .filter-btn.active { background: var(--color-copper); color: #ffffff; border-color: var(--color-copper); box-shadow: 0 4px 14px rgba(184, 115, 51, 0.45); }
     
     .resource-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
     .resource-card { display: flex; flex-direction: column; background: var(--bg-primary); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); transition: transform 0.3s; }
@@ -19,20 +22,111 @@
     .resource-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
     .resource-text { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
     .resource-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-primary); margin-bottom: 0.5rem; display: block; }
-    .resource-card h3 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.3; }
-    @media (max-width: 1024px) { .resource-grid { grid-template-columns: repeat(2, 1fr); } }
+    .resource-card h3 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.3; color: var(--text-primary); }
+    html, body {
+      overflow-x: hidden;
+    }
+    
+    .ti-section { padding: var(--space-xxl) 0; position: relative; }
+    .ti-split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
+    .ti-text-col { width: 100%; }
+    .ti-img { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3; }
+    .ti-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .ti-img:hover img { transform: scale(1.05); }
+    .ti-list { list-style: none; padding: 0; margin-bottom: 2.5rem; }
+    .ti-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; color: var(--text-primary); font-size: var(--text-md); }
+    .ti-list li svg { flex-shrink: 0; margin-top: 2px; }
     
     .featured-guide { position: relative; padding: var(--space-xxl); border-radius: var(--radius-lg); overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--color-charcoal); min-height: 400px; margin: 4rem 0; }
+    [data-theme="dark"] .featured-guide { background: #161616; border: 1px solid var(--border-color); }
     .featured-content { position: relative; z-index: 2; max-width: 800px; color: #fff; margin: 0 auto; }
     
+    @media (max-width: 1024px) {
+      .resource-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto 3rem auto;
+      }
+      .resource-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        text-align: left;
+      }
+      .resource-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+      }
+      .ti-section {
+        padding: 3rem 0 !important;
+      }
+      .ti-split {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2.5rem !important;
+        width: 100% !important;
+        max-width: 580px !important;
+        margin: 0 auto !important;
+      }
+      .ti-split > .ti-img {
+        order: -1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        aspect-ratio: 16/10 !important;
+      }
+      .ti-split > .ti-text-col {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        text-align: left !important;
+      }
+      .ti-list {
+        width: 100% !important;
+        margin-bottom: 2rem !important;
+      }
+      .ti-list li {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        gap: 0.75rem !important;
+        margin-bottom: 0.85rem !important;
+        word-break: break-word !important;
+      }
+      .ti-list li svg {
+        width: 20px !important;
+        height: 20px !important;
+        margin-top: 2px !important;
+      }
+      .ti-split .btn-outline {
+        width: 100% !important;
+        max-width: 340px !important;
+        white-space: normal !important;
+        text-align: center !important;
+        padding: 0.85rem 1.25rem !important;
+        font-size: 0.82rem !important;
+        line-height: 1.3 !important;
+        display: flex !important;
+        margin: 1.5rem auto 0 auto !important;
+        justify-content: center !important;
+      }
+    }
+    
     @media (max-width: 767px) {
-      .resource-grid { grid-template-columns: 1fr; }
-      .resource-card { text-align: left; }
-      .resource-img { width: 100%; aspect-ratio: 16/9; }
-      .featured-guide { padding: 3rem 1.5rem; min-height: 400px; text-align: center; justify-content: center; }
+      .resource-grid {
+        max-width: 100%;
+        gap: 1.75rem;
+      }
+      .featured-guide { padding: 3rem 1.5rem; min-height: 400px; text-align: center; justify-content: center; margin: 2.5rem 0 !important; }
       .featured-overlay { background: rgba(0,0,0,0.65); }
       .featured-content h2 { font-size: 2.2rem !important; margin-bottom: 1rem !important; }
       .featured-content p { font-size: 1.1rem !important; margin-bottom: 2rem !important; max-width: 100%; }
+      .ti-split { max-width: 100% !important; }
+      .ti-split .btn-outline { max-width: 100% !important; }
     }
   </style>
 </head>
@@ -45,11 +139,12 @@
         <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
         EVERMORE
       </a>
+      <span class="nav-descriptor">Memorial &amp; Life Celebration Planning</span>
     </div>
     
     <div class="nav-menu">
       <div class="dropdown">
-        <a href="#" class="nav-link has-dropdown">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <a href="#" class="nav-link has-dropdown" aria-haspopup="true" aria-expanded="false">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
         <div class="dropdown-content">
           <a href="index.html" class="nav-link">Home 1</a>
           <a href="home-2.html" class="nav-link">Home 2</a>
@@ -59,7 +154,7 @@
       <a href="services.html" class="nav-link">Services</a>
       <a href="life-celebration.html" class="nav-link">Life Celebration</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
-      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="resources.html" class="nav-link active" aria-current="page">Resources</a>
       <a href="contact.html" class="nav-link">Contact</a>
       </div>
 
@@ -70,7 +165,7 @@
       <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
       </button>
-      <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+      <a href="#" class="btn btn-primary open-modal">Book a Consultation</a>
     </div>
 
     <div class="hamburger">
@@ -92,7 +187,7 @@
       <a href="services.html" class="nav-link">Services</a>
       <a href="life-celebration.html" class="nav-link">Life Celebration</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
-      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="resources.html" class="nav-link active" aria-current="page">Resources</a>
       <a href="contact.html" class="nav-link">Contact</a>
   </div>
   <div class="mobile-controls">
@@ -104,19 +199,18 @@
       </button>
   </div>
   
-  <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+  <a href="#" class="btn btn-primary open-modal">Book a Consultation</a>
 </div>
-
-
 
 <section class="hero">
   <div class="hero-bg">
-    <img src="assets/images/resources_hero.jpg" alt="Resources">
+    <img src="assets/images/Memorial_Planning_Guide.png" alt="Memorial planning guide, memory board, and remembrance guestbook">
   </div>
   <div class="hero-overlay"></div>
   <div class="container hero-content text-center" style="margin: 0 auto;">
-    <h1 class="reveal" style="margin-bottom: 1.5rem; color: #fff;">Helpful guidance for difficult moments.</h1>
-    <p class="reveal stagger-1" style="font-size: var(--text-lg); max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9);">Practical resources, checklists, and thoughtful advice to help you navigate the planning process.</p>
+    <span class="hero-eyebrow reveal" style="color: var(--accent-light); letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; display: inline-block;">PLANNING GUIDANCE &amp; RESOURCES</span>
+    <h1 class="reveal" style="margin-bottom: 1.25rem; color: #fff;">Clear Guidance &amp; Resources<br class="desktop-br">for Meaningful Memorials</h1>
+    <p class="reveal stagger-1" style="font-size: var(--text-base); max-width: 780px; margin: 0 auto; color: rgba(255,255,255,0.9); line-height: 1.6;">Practical memorial checklists, celebration frameworks, and comforting advice<br class="desktop-br">to guide your family thoughtfully through every step of memorial planning.</p>
   </div>
 </section>
 
@@ -145,28 +239,28 @@
         
         const resourceData = {
           'Planning': [
-            { title: 'Memorial Planning Guide', desc: 'A step-by-step framework to help you navigate the process of honoring your loved one.', img: 'Memorial_Planning_Guide.png' },
-            { title: 'Budget & Logistics', desc: 'Practical advice for organizing the financial and logistical aspects of a ceremony.', img: 'Budget_&_Logistics.png' },
-            { title: 'Choosing the Right Venue', desc: 'Expert tips on finding and securing the perfect location for your gathering.', img: 'Choosing_the_Right_Venue.png' },
-            { title: 'Family Communication', desc: 'Guidance on managing family dynamics and sending out announcements.', img: 'Family_Communication.png' }
+            { title: 'Memorial Planning Guide', desc: 'A step-by-step framework to help you navigate the process of honoring your loved one.', img: 'image-26.png' },
+            { title: 'Budget & Logistics', desc: 'Practical advice for organizing the financial and logistical aspects of a ceremony.', img: 'image-20.png' },
+            { title: 'Choosing the Right Venue', desc: 'Expert tips on finding and securing the perfect location for your gathering.', img: 'image-6.png' },
+            { title: 'Family Communication', desc: 'Guidance on managing family dynamics and sending out announcements.', img: 'image-11.png' }
           ],
           'Practical Guidance': [
-            { title: 'Estate Matters Checklists', desc: 'Essential checklists for the days and weeks following a loss.', img: 'Estate_Matters_Checklists.png' },
-            { title: 'Handling Paperwork', desc: 'A clear guide to managing death certificates and necessary legal documents.', img: 'Handling_Paperwork.png' },
-            { title: 'Closing Accounts', desc: 'Step-by-step instructions for safely closing digital and financial accounts.', img: 'Closing_Accounts.png' },
-            { title: 'Grief Support Resources', desc: 'A curated list of professionals and groups specializing in bereavement support.', img: 'Grief_Support_Resources.png' }
+            { title: 'Estate Matters Checklists', desc: 'Essential checklists for the days and weeks following a loss.', img: 'image-8.png' },
+            { title: 'Handling Paperwork', desc: 'A clear guide to managing death certificates and necessary legal documents.', img: 'image-9.png' },
+            { title: 'Closing Accounts', desc: 'Step-by-step instructions for safely closing digital and financial accounts.', img: 'image-25.png' },
+            { title: 'Grief Support Resources', desc: 'A curated list of professionals and groups specializing in bereavement support.', img: 'image-1.png' }
           ],
           'Tributes': [
-            { title: 'Tribute Video Preparation', desc: 'How to gather photos and music to create a deeply moving video tribute.', img: 'Tribute_Video_Preparation2.png' },
-            { title: 'Writing an Obituary', desc: 'Thoughtful advice on capturing a life story with honesty and grace.', img: 'Writing_an_Obituary.png' },
-            { title: 'Selecting Readings', desc: 'A collection of meaningful poems, passages, and quotes for the ceremony.', img: 'Selecting_Readings.png' },
-            { title: 'Eulogy Guidelines', desc: 'Tips for writing and delivering a speech that honors their unique personality.', img: 'Eulogy_Guidelines.png' }
+            { title: 'Tribute Video Preparation', desc: 'How to gather photos and music to create a deeply moving video tribute.', img: 'image-16.png' },
+            { title: 'Writing an Obituary', desc: 'Thoughtful advice on capturing a life story with honesty and grace.', img: 'image-2.png' },
+            { title: 'Selecting Readings', desc: 'A collection of meaningful poems, passages, and quotes for the ceremony.', img: 'image-22.png' },
+            { title: 'Eulogy Guidelines', desc: 'Tips for writing and delivering a speech that honors their unique personality.', img: 'image-17.png' }
           ],
           'Celebrations': [
-            { title: 'Celebration-of-Life Checklist', desc: 'Everything you need to plan a memorable and uplifting gathering.', img: 'Celebration-of-Life_Checklist2.png' },
-            { title: 'Creative Memorial Ideas', desc: 'Unique ways to incorporate their passions and hobbies into the event.', img: 'Creative_Memorial_Ideas.png' },
-            { title: 'Music & Atmosphere', desc: 'Curating the right environment to reflect the spirit of your loved one.', img: 'Music_&_Atmosphere.png' },
-            { title: 'Food & Reception Planning', desc: 'Organizing catering and refreshments that bring people together comfortably.', img: 'Food_&_Reception_Planning.png' }
+            { title: 'Celebration-of-Life Checklist', desc: 'Everything you need to plan a memorable and uplifting gathering.', img: 'image-4.png' },
+            { title: 'Creative Memorial Ideas', desc: 'Unique ways to incorporate their passions and hobbies into the event.', img: 'image-3.png' },
+            { title: 'Music & Atmosphere', desc: 'Curating the right environment to reflect the spirit of your loved one.', img: 'image-12.png' },
+            { title: 'Food & Reception Planning', desc: 'Organizing catering and refreshments that bring people together comfortably.', img: 'image-24.png' }
           ]
         };
         
@@ -219,43 +313,33 @@
   </div>
 </section>
 
-<style>
-  .ti-split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
-  .ti-img { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3; }
-  .ti-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-  .ti-img:hover img { transform: scale(1.05); }
-  .ti-list { list-style: none; padding: 0; margin-bottom: 2.5rem; }
-  .ti-list li { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: var(--text-primary); font-size: var(--text-md); }
-  @media (max-width: 992px) {
-    .ti-split { grid-template-columns: 1fr; gap: 2.5rem; }
-    .ti-split > .ti-img { order: -1; }
-  }
-</style>
 
-<section class="section">
+
+<section class="section ti-section">
   <div class="container reveal">
     <div class="ti-split">
-      <div>
-        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">A Library of Inspiration</h2>
-        <p style="font-size: var(--text-md); color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">Our resources are continuously updated by experts in memorial planning, grief counseling, and event design. Whether you are looking for immediate practical steps or meaningful creative ideas, our library is designed to offer clarity during an overwhelming time.</p>
+      <div class="ti-text-col">
+        <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">MEMORIAL ARCHIVES &amp; SUPPORT</span>
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">A Library of Memorial &amp; Life Celebration Inspiration</h2>
+        <p style="font-size: var(--text-md); color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">Our resources are continuously updated by certified memorial planners, bereavement specialists, and creative tribute designers. Whether you need immediate step-by-step funeral coordination checklists or inspiring celebration ideas, our library provides compassionate guidance.</p>
         <ul class="ti-list">
           <li>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 
-            Expertly Curated Articles
+            Curated Memorial Planning Articles &amp; Timelines
           </li>
           <li>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 
-            Practical Planning Templates
+            Downloadable Service Order &amp; Tribute Templates
           </li>
           <li>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 
-            Beautiful Celebration Concepts
+            Bespoke Celebration of Life Concepts &amp; Themes
           </li>
         </ul>
-        <a href="#" class="btn btn-outline open-modal">Request Complete Guide</a>
+        <a href="#" class="btn btn-outline open-modal">Request Complete Planning Guide</a>
       </div>
       <div class="ti-img">
-        <img src="assets/images/Stories.png" alt="Library of Inspiration">
+        <img src="assets/images/image-18.png" alt="Memorial Planning Inspiration Library, open remembrance guestbook, and white florals">
       </div>
     </div>
   </div>
@@ -263,12 +347,14 @@
 
 <section class="section section-alt">
   <div class="container">
-    <div class="featured-guide reveal">
-      <div class="featured-content">
-        <span class="resource-category" style="color: var(--color-copper); margin-bottom: 1rem;">FEATURED GUIDE</span>
-        <h2 style="font-size: var(--text-xxl); margin-bottom: 1.5rem; color: #fff;">Planning a Meaningful Celebration</h2>
-        <p style="margin-bottom: 2rem; font-size: var(--text-lg); color: rgba(255,255,255,0.9);">Our comprehensive editorial guide to shaping a ceremony that honors the individual deeply and honestly.</p>
-        <a href="#" class="btn btn-primary open-modal">View Guide</a>
+    <div class="featured-guide reveal" style="position: relative; overflow: hidden; background: none;">
+      <img src="assets/images/image-14.png" alt="Planning a Meaningful Memorial" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+      <div class="featured-overlay" style="position: absolute; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 1;"></div>
+      <div class="featured-content" style="position: relative; z-index: 2;">
+        <span class="resource-category" style="color: var(--color-copper); margin-bottom: 1rem;">FEATURED MEMORIAL GUIDE</span>
+        <h2 style="font-size: var(--text-xxl); margin-bottom: 1.5rem; color: #fff;">Planning a Meaningful Memorial &amp; Life Celebration</h2>
+        <p style="margin-bottom: 2rem; font-size: var(--text-lg); color: rgba(255,255,255,0.9);">Our comprehensive editorial guide to shaping a tribute ceremony that honors your loved one's legacy with warmth, authenticity, and grace.</p>
+        <a href="#" class="btn btn-primary open-modal">Download Complimentary Guide</a>
       </div>
     </div>
   </div>
@@ -277,10 +363,13 @@
 <section class="section">
   <div class="container reveal">
     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); border-top: 4px solid var(--accent-primary); padding: 5rem 2rem; text-align: center; box-shadow: var(--shadow-md); position: relative;">
-      <div style="max-width: 600px; margin: 0 auto;">
-        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">Still have questions?</h2>
-        <p style="font-size: var(--text-md); color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">If you couldn't find the resource you were looking for, our planning team is always available to help guide you.</p>
-        <a href="#" class="btn btn-primary open-modal">Ask Our Team</a>
+      <div style="max-width: 650px; margin: 0 auto;">
+        <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">COMPASSIONATE ASSISTANCE</span>
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">Need Personal Guidance for an Upcoming Memorial?</h2>
+        <div class="btn-group" style="max-width: 580px; margin: 0 auto;">
+          <a href="#" class="btn btn-primary open-modal">Book a Consultation</a>
+          <a href="pricing.html" class="btn btn-secondary">Choose a Package</a>
+        </div>
       </div>
     </div>
   </div>
@@ -290,14 +379,15 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-                              <div class="footer-brand">
-        <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; white-space: nowrap; line-height: 1;">
           <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
           EVERMORE
         </a>
-                <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
+        <span class="nav-descriptor" style="display: block; margin-bottom: 1rem;">Memorial &amp; Life Celebration Planning</span>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
         <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
-          Dedicated to providing compassionate support and creating deeply personalized memorial services for your loved ones.
+          Dedicated to providing compassionate guidance and creating deeply personalized memorial services and celebrations of life.
         </p>
         <div class="social-links">
           <a href="#" class="social-link" aria-label="Instagram">
@@ -363,40 +453,40 @@
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
     <div class="modal-header">
-      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Let's Begin With a Conversation</h2>
-      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Tell us a little about what you are looking for, and our planning team can help you understand the next steps.</p>
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Plan a Memorial or Life Celebration</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Share your vision with our compassionate memorial planners, and we will guide you through every thoughtful step.</p>
     </div>
     <form class="modal-form">
       <div class="form-group">
-        <label class="form-label">Your Name</label>
-        <input type="text" class="form-control" required>
+        <label class="form-label" for="modal-name">Your Name</label>
+        <input type="text" id="modal-name" class="form-control" required>
       </div>
       <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
         <div>
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" required>
+          <label class="form-label" for="modal-email">Email</label>
+          <input type="email" id="modal-email" class="form-control" required>
         </div>
         <div>
-          <label class="form-label">Phone</label>
-          <input type="tel" class="form-control">
+          <label class="form-label" for="modal-phone">Phone</label>
+          <input type="tel" id="modal-phone" class="form-control">
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">What Can We Help With?</label>
-        <select class="form-control" required>
-          <option value="">Select an option...</option>
-          <option value="planning">Planning Guidance</option>
-          <option value="celebration">Celebration Design</option>
-          <option value="tribute">Tribute Creation</option>
-          <option value="coordination">Event Coordination</option>
-          <option value="other">Other</option>
+        <label class="form-label" for="modal-service">How Can We Support You?</label>
+        <select id="modal-service" class="form-control" required>
+          <option value="">Select a planning service...</option>
+          <option value="life-celebration">Celebration of Life Planning</option>
+          <option value="memorial-service">Traditional Memorial Service</option>
+          <option value="tribute-production">Cinematic Tribute Video &amp; Displays</option>
+          <option value="venue-coordination">Venue Sourcing &amp; Event Coordination</option>
+          <option value="immediate-need">Immediate Planning Assistance</option>
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label">Message</label>
-        <textarea class="form-control" placeholder="Share as much or as little as you feel comfortable..."></textarea>
+        <label class="form-label" for="modal-message">Message</label>
+        <textarea id="modal-message" class="form-control" placeholder="Tell us about your loved one or your vision for the memorial..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Send Enquiry</button>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Book a Consultation</button>
     </form>
   </div>
 </div>

@@ -129,27 +129,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === Active Nav Link State ===
   const currentPath = window.location.pathname;
+  const currentFile = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
   const navLinksList = document.querySelectorAll('.nav-link');
   
   navLinksList.forEach(link => {
-    // Only check internal links
-    if (!link.href || link.href.includes('#')) return;
+    if (!link.href || link.getAttribute('href') === '#') return;
     
     try {
-      const linkPath = new URL(link.href).pathname;
+      const linkFile = new URL(link.href, window.location.href).pathname.split('/').pop() || 'index.html';
       
-      // Match exactly, or match / and /index.html as equivalent
-      if (currentPath === linkPath || 
-         (currentPath === '/' && linkPath.endsWith('/index.html')) || 
-         (currentPath.endsWith('/index.html') && linkPath === '/')) {
-         
+      if (linkFile === currentFile) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
         
-        // If it's inside a dropdown, also highlight the parent dropdown toggle
+        // If it's inside a dropdown, also highlight and update the parent dropdown toggle
         const parentDropdown = link.closest('.dropdown');
         if (parentDropdown) {
           const parentLink = parentDropdown.querySelector('.has-dropdown');
-          if (parentLink) parentLink.classList.add('active');
+          if (parentLink) {
+            parentLink.classList.add('active');
+            parentLink.setAttribute('aria-expanded', 'true');
+          }
         }
       }
     } catch (e) {
@@ -157,21 +157,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // === Form Validation ===
+  // === Form Submission & Completion Feedback ===
   const forms = document.querySelectorAll('form');
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Basic validation simulated
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerText;
       
-      submitBtn.innerText = 'Sending...';
-      submitBtn.disabled = true;
+      // Native validation check
+      if (form.checkValidity && !form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.innerText = 'Submitting With Care...';
+        submitBtn.disabled = true;
+      }
       
       setTimeout(() => {
-        form.innerHTML = '<div style="text-align: center; padding: 2rem;"><h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Thank you.</h3><p>Your enquiry has been received. Our team will review your message and respond as soon as possible.</p></div>';
-      }, 1500);
+        const isModal = form.classList.contains('modal-form');
+        form.innerHTML = `
+          <div class="form-success-message" style="text-align: center; padding: 2.25rem 1.25rem;">
+            <div style="width: 56px; height: 56px; margin: 0 auto 1.25rem; border-radius: 50%; background: rgba(160, 93, 40, 0.12); color: var(--accent-primary); display: flex; align-items: center; justify-content: center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.75rem; margin-bottom: 0.75rem; color: var(--text-primary);">Enquiry Received With Care</h3>
+            <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 1.5rem; line-height: 1.6; font-size: var(--text-sm);">Thank you for reaching out to Evermore. A dedicated memorial and life celebration planner will review your details and connect with you promptly.</p>
+            ${isModal ? '<button type="button" class="btn btn-secondary modal-done-btn" style="min-width: 140px;">Close Window</button>' : '<button type="button" class="btn btn-secondary form-reset-btn" style="min-width: 160px;">Send Another Message</button>'}
+          </div>
+        `;
+        
+        const doneBtn = form.querySelector('.modal-done-btn');
+        if (doneBtn) {
+          doneBtn.addEventListener('click', () => {
+            const modalOverlay = form.closest('.modal-overlay');
+            if (modalOverlay) {
+              modalOverlay.classList.remove('active');
+              document.body.style.overflow = '';
+            }
+          });
+        }
+        
+        const resetBtn = form.querySelector('.form-reset-btn');
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            window.location.reload();
+          });
+        }
+      }, 900);
     });
   });
 

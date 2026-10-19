@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EVERMORE | About</title>
+  <title>About Us | Memorial & Life Celebration Planning Service</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <meta name="description" content="Learn about Evermore, a dedicated memorial and life celebration planning service providing empathetic guidance and dignified ceremonies.">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .hero-home { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .about-hero-base { min-height: 52vh; display: flex; align-items: center; position: relative; overflow: hidden; }
     
     .manifesto-section { background: var(--bg-primary); color: var(--text-primary); padding: var(--space-xxl) 0; }
     .manifesto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
@@ -25,10 +26,21 @@
     .approach-card img { border-radius: 0 !important; margin-bottom: 2rem !important; aspect-ratio: 16/9; object-fit: cover; }
     .approach-card h3, .approach-card p { padding: 0 2rem; }
     
+    .slider-btn { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); cursor: pointer; transition: all var(--transition-fast); }
+    .slider-btn:hover { background: var(--color-copper); color: #ffffff; border-color: var(--color-copper); transform: scale(1.05); }
+    [data-theme="dark"] .slider-btn { background: var(--bg-secondary); border-color: var(--border-color); color: var(--text-primary); }
+    [data-theme="dark"] .slider-btn:hover { background: var(--color-copper); color: #ffffff; border-color: var(--color-copper); }
+    
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
     .team-member { text-align: center; }
     .team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: 1.5rem; transition: transform var(--transition-normal); }
     .team-member:hover .team-img { transform: translateY(-10px); }
+    
+    .hero .hero-content { max-width: 1060px; margin: 0 auto; }
+    .about-hero-title { font-size: clamp(2rem, 3.2vw, 3.05rem) !important; line-height: 1.25 !important; }
+    @media (min-width: 820px) {
+      .hero-line-1 { white-space: nowrap; }
+    }
     
     @media (max-width: 1024px) {
       .manifesto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -36,7 +48,9 @@
       .manifesto-item:last-child { grid-column: 1 / -1; width: calc(50% - 1rem); justify-self: center; }
     }
     
-    @media (max-width: 767px) {
+    .promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    
+    @media (max-width: 768px) {
       .about-hero { flex-direction: column; }
       .about-img { position: relative; width: 100%; height: 400px; }
       .about-hero-content { width: 100%; padding: 2rem 0; }
@@ -47,29 +61,35 @@
       .approach-slider { flex-direction: column; gap: 2rem; overflow-x: hidden; padding-bottom: 0; }
       .approach-card { flex: 1 1 auto; width: 100%; }
       .slider-controls { display: none !important; }
+      
+      .promise-grid { display: flex !important; flex-direction: column !important; gap: 2rem !important; }
+      .promise-image-wrapper { order: -1; width: 100% !important; }
+      .promise-image-wrapper img { width: 100% !important; height: 280px !important; object-fit: cover !important; }
+      .promise-content { width: 100% !important; }
     }
   </style>
 </head>
 <body>
-<!-- Navbar placeholder -->
+<!-- Navbar -->
 <nav class="navbar">
   <div class="container nav-container">
-                <div class="nav-brand">
+    <div class="nav-brand">
       <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; line-height: 1;">
         <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
         EVERMORE
       </a>
+      <span class="nav-descriptor">Memorial &amp; Life Celebration Planning</span>
     </div>
     
     <div class="nav-menu">
       <div class="dropdown">
-        <a href="#" class="nav-link has-dropdown">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <a href="#" class="nav-link has-dropdown" aria-haspopup="true" aria-expanded="false">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
         <div class="dropdown-content">
           <a href="index.html" class="nav-link">Home 1</a>
           <a href="home-2.html" class="nav-link">Home 2</a>
         </div>
       </div>
-      <a href="about.html" class="nav-link">About</a>
+      <a href="about.html" class="nav-link active" aria-current="page">About</a>
       <a href="services.html" class="nav-link">Services</a>
       <a href="life-celebration.html" class="nav-link">Life Celebration</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
@@ -84,7 +104,7 @@
       <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
       </button>
-      <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+      <a href="#" class="btn btn-primary open-modal">Book a Consultation</a>
     </div>
 
     <div class="hamburger">
@@ -102,7 +122,7 @@
   <div class="mobile-nav-list">
       <a href="index.html" class="nav-link">Home 1</a>
       <a href="home-2.html" class="nav-link">Home 2</a>
-      <a href="about.html" class="nav-link">About</a>
+      <a href="about.html" class="nav-link active" aria-current="page">About</a>
       <a href="services.html" class="nav-link">Services</a>
       <a href="life-celebration.html" class="nav-link">Life Celebration</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
@@ -118,10 +138,8 @@
       </button>
   </div>
   
-  <a href="#" class="btn btn-primary open-modal">Plan a Conversation</a>
+  <a href="#" class="btn btn-primary open-modal">Book a Consultation</a>
 </div>
-
-
 
 <!-- SECTION 01: HERO -->
 <section class="hero">
@@ -129,42 +147,43 @@
     <img src="assets/images/about_hero.jpg" alt="Our Story" style="object-position: center 20%;">
   </div>
   <div class="hero-overlay"></div>
-  <div class="container hero-content text-center" style="margin: 0 auto;">
-    <span class="eyebrow" style="color: var(--color-copper-muted);">OUR STORY</span>
-    <h1 class="reveal" style="margin-bottom: 2rem; color: #fff;">Carefully planned. Deeply personal.</h1>
-    <p class="reveal stagger-1" style="font-size: var(--text-lg); max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9);">We believe that a life celebration should be as unique as the person being remembered. We founded Evermore to provide families with a modern, compassionate alternative to traditional arrangements.</p>
+  <div class="container hero-content text-center" style="margin: 0 auto; max-width: 1060px;">
+    <span class="hero-eyebrow reveal" style="color: var(--accent-light); letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; display: inline-block;">ABOUT OUR MEMORIAL PLANNING SERVICE</span>
+    <h1 class="reveal about-hero-title" style="margin-bottom: 1.25rem; color: #fff;"><span class="hero-line-1">Dedicated to Planning Meaningful Memorials</span><br class="desktop-br">&amp; Celebrations of Life</h1>
+    <p class="reveal stagger-1" style="font-size: var(--text-base); max-width: 780px; margin: 0 auto; color: rgba(255,255,255,0.9); line-height: 1.6;">We believe a memorial should be as unique and profound as the life being honored.<br class="desktop-br">Evermore provides families with compassionate guidance and bespoke celebration planning.</p>
   </div>
 </section>
 
 <section class="manifesto-section">
   <div class="container">
-    <h2 class="reveal text-center" style="color: var(--text-primary); margin-bottom: 4rem;">Why Evermore</h2>
+    <h2 class="reveal text-center" style="color: var(--text-primary); margin-bottom: 1rem;">Why Choose Our Memorial &amp; Life Celebration Planners</h2>
+    <p class="reveal stagger-1 text-center" style="margin: 0 auto 3.5rem auto; max-width: 650px; color: var(--text-secondary);">Our commitment to heartfelt empathy, creative celebration design, and flawless memorial coordination.</p>
     
     <div class="manifesto-grid">
       <div class="manifesto-item reveal stagger-1">
-        <img src="assets/images/Listen_First.png" alt="Listen First" class="manifesto-img">
+        <img src="assets/images/image-10.png" alt="Listen with Empathy" class="manifesto-img">
         <div class="manifesto-num">01</div>
         <div class="manifesto-text">
-          <h3>Listen First</h3>
-          <p>We begin by understanding the person and the family, before making any assumptions about what the day should look like.</p>
+          <h3>Listen with Empathy</h3>
+          <p>We begin by understanding the person, their legacy, and the family's needs, never making assumptions or imposing rigid templates.</p>
         </div>
       </div>
       
       <div class="manifesto-item reveal stagger-2">
-        <img src="assets/images/Respect_Every_Story.png" alt="Respect Every Story" class="manifesto-img">
+        <img src="assets/images/image-2.png" alt="Honor Every Life Story" class="manifesto-img">
         <div class="manifesto-num">02</div>
         <div class="manifesto-text">
-          <h3>Respect Every Story</h3>
-          <p>Every life deserves a celebration shaped around its individuality, regardless of faith, background, or tradition.</p>
+          <h3>Honor Every Life Story</h3>
+          <p>Every life deserves a memorial shaped around its individuality, honoring all faiths, backgrounds, traditions, and personal beliefs.</p>
         </div>
       </div>
       
       <div class="manifesto-item reveal stagger-3">
-        <img src="assets/images/Handle_Every_Detail.png" alt="Handle Every Detail" class="manifesto-img">
+        <img src="assets/images/image-4.png" alt="Handle Every Detail with Care" class="manifesto-img">
         <div class="manifesto-num">03</div>
         <div class="manifesto-text">
-          <h3>Handle Every Detail</h3>
-          <p>We coordinate the practical details so families can focus entirely on remembering and supporting one another.</p>
+          <h3>Handle Every Detail with Care</h3>
+          <p>We coordinate all practical logistics and vendor management so your family can focus entirely on remembering, healing, and supporting one another.</p>
         </div>
       </div>
     </div>
@@ -174,41 +193,59 @@
 <section class="section section-alt">
   <div class="container">
     <div class="reveal" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
-      <h2 style="margin: 0;">Our Approach</h2>
+      <h2 style="margin: 0;">Our Memorial Planning Methodology</h2>
       <div class="slider-controls" style="display: flex; gap: 1rem;">
-        <button class="icon-btn" style="border: 1px solid var(--border-color); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-primary); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='var(--color-charcoal)'; this.style.color='var(--color-ivory)'" onmouseout="this.style.background='var(--bg-primary)'; this.style.color='currentColor'" onclick="document.querySelector('.approach-slider').scrollBy({left: -400, behavior: 'smooth'})">
+        <button class="slider-btn" aria-label="Previous step" onclick="document.querySelector('.approach-slider').scrollBy({left: -400, behavior: 'smooth'})">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>
         </button>
-        <button class="icon-btn" style="border: 1px solid var(--border-color); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-primary); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='var(--color-charcoal)'; this.style.color='var(--color-ivory)'" onmouseout="this.style.background='var(--bg-primary)'; this.style.color='currentColor'" onclick="document.querySelector('.approach-slider').scrollBy({left: 400, behavior: 'smooth'})">
+        <button class="slider-btn" aria-label="Next step" onclick="document.querySelector('.approach-slider').scrollBy({left: 400, behavior: 'smooth'})">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg>
         </button>
       </div>
     </div>
     <div class="approach-slider reveal stagger-1">
       <div class="approach-card">
-        <img src="assets/images/Listen2.png" alt="Listen" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
-        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Listen</h3>
-        <p>A quiet conversation to understand.</p>
+        <img src="assets/images/image-20.png" alt="Listen and discover" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">01 &mdash; Listen &amp; Discover</h3>
+        <p>An unhurried conversation to understand their passions, values, and memory.</p>
       </div>
       <div class="approach-card" style="background: var(--bg-tertiary);">
-        <img src="assets/images/Understand.png" alt="Understand" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
-        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Understand</h3>
-        <p>Gathering the stories and details.</p>
+        <img src="assets/images/image-8.png" alt="Curate and shape" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">02 &mdash; Curate &amp; Shape</h3>
+        <p>Gathering photographs, stories, favorite music, and meaningful readings.</p>
       </div>
       <div class="approach-card">
-        <img src="assets/images/Design.png" alt="Design" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
-        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Design</h3>
-        <p>Creating the framework of the day.</p>
+        <img src="assets/images/image-17.png" alt="Design and structure" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">03 &mdash; Design &amp; Structure</h3>
+        <p>Structuring the service order, ceremonial rituals, and tribute moments.</p>
       </div>
       <div class="approach-card" style="background: var(--bg-tertiary);">
-        <img src="assets/images/Coordinate2.png" alt="Coordinate" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
-        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Coordinate</h3>
-        <p>Handling all logistics and vendors.</p>
+        <img src="assets/images/image-6.png" alt="Coordinate logistics" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">04 &mdash; Coordinate Logistics</h3>
+        <p>Managing venues, florists, audio-visuals, officiants, and caterers.</p>
       </div>
       <div class="approach-card">
-        <img src="assets/images/Support.png" alt="Support" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
-        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Support</h3>
-        <p>Being there on the day for you.</p>
+        <img src="assets/images/image-1.png" alt="Day of support" style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: 1.5rem; display: block;">
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">05 &mdash; Day-of Support</h3>
+        <p>Discreet, dedicated on-site coordination to ensure absolute peace of mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" style="padding: 4rem 0;">
+  <div class="container">
+    <div class="promise-grid">
+      <div class="promise-content reveal">
+        <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">OUR HEARTFELT PROMISE</span>
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">A Foundation of Gentle Care, Comfort, &amp; Dignity</h2>
+        <p style="font-size: var(--text-md); color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">We recognize that grief is deeply personal. Our directors walk beside you with warmth and steady support, handling every arrangement with quiet respect so your family feels embraced and heard.</p>
+        <blockquote style="font-family: var(--font-display); font-size: 1.15rem; font-style: italic; border-left: 2px solid var(--accent-primary); padding-left: 1.25rem; color: var(--text-primary); margin: 0;">
+          "True memorial planning is not merely an event; it is a sacred space where love is remembered and hearts begin to heal."
+        </blockquote>
+      </div>
+      <div class="promise-image-wrapper reveal stagger-1" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
+        <img src="assets/images/image-13.png" alt="Gentle compassionate hands providing support and comfort to grieving families" style="width: 100%; height: 350px; object-fit: cover; display: block;">
       </div>
     </div>
   </div>
@@ -217,30 +254,31 @@
 <section class="section">
   <div class="container">
     <div class="text-center reveal">
-      <h2 style="margin-bottom: 1.5rem;">People who understand the importance of getting it right.</h2>
-      <p style="margin: 0 auto 3rem auto;">Our planners are dedicated to guiding families with warmth and professionalism.</p>
+      <h2 style="margin-bottom: 1.5rem;">Compassionate Professionals Dedicated to Memorial Excellence</h2>
+      <p style="margin: 0 auto 3rem auto;">Our experienced memorial planners, celebrants, and tribute designers are dedicated to guiding families with warmth, dignity, and professionalism.</p>
     </div>
     
     <div class="team-grid reveal stagger-1">
       <div class="team-member">
-        <img src="assets/images/Eleanor%20Hayes.png" class="team-img" alt="Eleanor Hayes">
+        <img src="assets/images/Eleanor%20Hayes.png" class="team-img" alt="Eleanor Hayes, Principal Memorial Planner &amp; Celebrant">
         <h4 style="font-family: var(--font-display);">Eleanor Hayes</h4>
-        <p style="font-size: var(--text-sm);">Lead Planner</p>
+        <p style="font-size: var(--text-sm);">Principal Memorial Planner &amp; Celebrant</p>
       </div>
       <div class="team-member">
-        <img src="assets/images/James%20Sterling.png" class="team-img" alt="James Sterling">
+        <img src="assets/images/James%20Sterling.png" class="team-img" alt="James Sterling, Director of Ceremonial Logistics">
         <h4 style="font-family: var(--font-display);">James Sterling</h4>
-        <p style="font-size: var(--text-sm);">Coordination Director</p>
+        <p style="font-size: var(--text-sm);">Director of Ceremonial Logistics</p>
       </div>
       <div class="team-member">
-        <img src="assets/images/Sarah%20Lin.png" class="team-img" alt="Sarah Lin">
+        <img src="assets/images/Sarah%20Lin.png" class="team-img" alt="Sarah Lin, Memorial Tribute &amp; Media Designer">
         <h4 style="font-family: var(--font-display);">Sarah Lin</h4>
-        <p style="font-size: var(--text-sm);">Tribute Designer</p>
+        <p style="font-size: var(--text-sm);">Memorial Tribute &amp; Media Designer</p>
       </div>
     </div>
     
-    <div class="text-center reveal stagger-2" style="margin-top: 4rem;">
-      <a href="#" class="btn btn-primary open-modal">Speak With Our Team</a>
+    <div class="text-center reveal stagger-2 btn-group" style="margin-top: 4rem; max-width: 580px; margin-left: auto; margin-right: auto;">
+      <a href="#" class="btn btn-primary open-modal">Book a Consultation</a>
+      <a href="services.html" class="btn btn-secondary">Explore Planning Services</a>
     </div>
   </div>
 </section>
@@ -248,14 +286,15 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-                              <div class="footer-brand">
-        <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; white-space: nowrap; line-height: 1;">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-text" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; white-space: nowrap; line-height: 1;">
           <svg class="site-logo" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 C 18 16, 12 28, 12 40 C 12 51, 21 60, 32 60 C 43 60, 52 51, 52 40 C 52 28, 46 16, 32 4 Z"></path><path d="M32 60 C 20 46, 20 28, 32 14 C 44 28, 44 46, 32 60 Z"></path><path d="M32 14 L 32 60"></path></svg>
           EVERMORE
         </a>
-                <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
+        <span class="nav-descriptor" style="margin-bottom: 1rem; display: block;">Memorial &amp; Life Celebration Planning</span>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Honoring a Life. Remembering a Legacy.</p>
         <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
-          Dedicated to providing compassionate support and creating deeply personalized memorial services for your loved ones.
+          Dedicated to providing compassionate support and creating deeply personalized memorial services and celebrations of life for your loved ones.
         </p>
         <div class="social-links">
           <a href="#" class="social-link" aria-label="Instagram">
@@ -321,40 +360,41 @@
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
     <div class="modal-header">
-      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Let's Begin With a Conversation</h2>
-      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Tell us a little about what you are looking for, and our planning team can help you understand the next steps.</p>
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Begin Planning a Memorial or Celebration</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Tell us a little about your loved one and how we can assist, and our memorial planning team will reach out with compassionate guidance.</p>
     </div>
     <form class="modal-form">
       <div class="form-group">
-        <label class="form-label">Your Name</label>
-        <input type="text" class="form-control" required>
+        <label class="form-label" for="modal-name">Your Name</label>
+        <input type="text" id="modal-name" class="form-control" required>
       </div>
       <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
         <div>
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" required>
+          <label class="form-label" for="modal-email">Email</label>
+          <input type="email" id="modal-email" class="form-control" required>
         </div>
         <div>
-          <label class="form-label">Phone</label>
-          <input type="tel" class="form-control">
+          <label class="form-label" for="modal-phone">Phone</label>
+          <input type="tel" id="modal-phone" class="form-control">
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">What Can We Help With?</label>
-        <select class="form-control" required>
-          <option value="">Select an option...</option>
-          <option value="planning">Planning Guidance</option>
-          <option value="celebration">Celebration Design</option>
-          <option value="tribute">Tribute Creation</option>
-          <option value="coordination">Event Coordination</option>
-          <option value="other">Other</option>
+        <label class="form-label" for="modal-service">What Can We Help With?</label>
+        <select id="modal-service" class="form-control" required>
+          <option value="">Select a planning service...</option>
+          <option value="memorial-planning">Memorial Service Planning</option>
+          <option value="life-celebration">Celebration of Life Design</option>
+          <option value="tribute-creation">Tribute Video &amp; Media Creation</option>
+          <option value="venue-coordination">Venue &amp; Vendor Coordination</option>
+          <option value="day-of-coordination">Day-of Memorial Coordination</option>
+          <option value="pre-planning">Advance Planning Guidance</option>
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label">Message</label>
-        <textarea class="form-control" placeholder="Share as much or as little as you feel comfortable..."></textarea>
+        <label class="form-label" for="modal-message">Message</label>
+        <textarea id="modal-message" class="form-control" placeholder="Share as much or as little as you feel comfortable..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Send Enquiry</button>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Book a Consultation</button>
     </form>
   </div>
 </div>
