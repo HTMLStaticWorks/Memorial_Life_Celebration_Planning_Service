@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 /* EVERMORE - Premium Memorial & Life Celebration */
 /* CSS Variables & Theme System */
 
@@ -421,12 +423,13 @@ button {
   align-items: center;
   gap: 1.25rem;
   width: 100%;
+  max-width: 640px !important;
   flex-wrap: wrap;
 }
 
 .btn-group .btn {
-  flex: 0 0 270px;
-  width: 270px;
+  flex: 0 0 300px;
+  width: 300px;
   max-width: 100%;
   min-height: 52px;
   padding: 0.85rem 1.25rem;
@@ -447,7 +450,7 @@ button {
 
   .btn-group .btn {
     flex: 0 0 auto;
-    width: 270px;
+    width: 300px;
     max-width: 100%;
     min-height: 52px;
   }
